@@ -55,7 +55,7 @@ echo to_btc(20, 'LTC');  // 2.12345678
 
 #### Specifying exchange rates provider:
 
-```php
+``` php
 use Jimmerioles\BitcoinCurrencyConverter\Converter;
 use Jimmerioles\BitcoinCurrencyConverter\Provider\CoinbaseProvider;
 use Jimmerioles\BitcoinCurrencyConverter\Provider\CoindeskProvider;
@@ -74,6 +74,12 @@ Please see [CHANGELOG](https://github.com/jimmerioles/bitcoin-currency-converter
 
 ``` bash
 $ phpunit
+```
+
+#### Show features and specs:
+
+``` bash
+$ phpunit --testdox
 ```
 
 ## Contributing
