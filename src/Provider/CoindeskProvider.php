@@ -22,7 +22,7 @@ class CoindeskProvider extends AbstractProvider
     {
         $arrayData = json_decode($rawJsonData, true);
 
-        foreach ($arrayData['bpi'] as $key => $value) {
+        foreach ($arrayData['bpi'] as $value) {
             $exchangeRatesArray[$value['code']] = $value['rate_float'];
         }
 
