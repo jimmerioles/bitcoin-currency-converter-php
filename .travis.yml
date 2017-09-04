@@ -1,0 +1,12 @@
+language: php
+php:
+  - '5.6'
+  - '7.0'
+  - '7.1'
+install:
+  - composer install -n
+script:
+  - php vendor/bin/phpunit --coverage-clover clover.xml
+
+after_script:
+  - php vendor/bin/codacycoverage clover clover.xml

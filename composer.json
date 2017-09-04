@@ -1,0 +1,40 @@
+{
+    "name": "jimmerioles/bitcoin-currency-converter-php",
+    "description": "A simple and lightweight bitcoin to currency converter and vice versa based on current exchange rates from your chosen provider: Coinbase, Coindesk, Bitpay and etc.",
+    "type": "library",
+    "keywords": [
+            "bitcoin", "currency", "converter", "coinbase", "coindesk", "bitpay", "cryptocurrency"
+        ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jim Merioles",
+            "email": "jimwisleymerioles@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jimmerioles\\BitcoinCurrencyConverter\\": "src/"
+        },
+        "files": [
+            "src/Util/currency_code_checker_helper.php",
+            "src/Util/currency_formatter_helper.php",
+            "src/Util/converter_helper.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~5.7",
+        "mockery/mockery": "0.9.*",
+        "codacy/coverage": "^1.2"
+    },
+    "prefer-stable" : true
+}
