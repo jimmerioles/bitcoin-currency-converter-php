@@ -16,8 +16,6 @@ engines:
     config:
       file_extensions: "php"
       rulesets: "cleancode,codesize,controversial,design,naming,unusedcode"
-  phan:
-    enabled: true
 exclude_paths:
 - "tests/"
 ratings:
