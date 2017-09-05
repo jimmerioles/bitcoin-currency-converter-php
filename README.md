@@ -3,7 +3,7 @@
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE)
 [![Build Status][ico-travis]][link-travis]
-[![Coverage Status][ico-codacy]][link-codacy]
+[![Coverage Status][ico-coverage]][link-coverage]
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
@@ -102,13 +102,13 @@ The MIT License (MIT). Please see [License File](LICENSE) for more information.
 [ico-version]: https://img.shields.io/packagist/v/jimmerioles/bitcoin-currency-converter-php.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/jimmerioles/bitcoin-currency-converter-php/master.svg?style=flat-square
-[ico-codacy]: https://img.shields.io/codacy/coverage/77c6cbd35c6c4b06b786a64dfb6b362c.svg?style=flat-square
+[ico-coverage]: https://img.shields.io/codeclimate/coverage/github/jimmerioles/bitcoin-currency-converter-php.svg?style=flat-square
 [ico-code-quality]: https://img.shields.io/codeclimate/github/jimmerioles/bitcoin-currency-converter-php.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/jimmerioles/bitcoin-currency-converter-php.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/jimmerioles/bitcoin-currency-converter-php
 [link-travis]: https://travis-ci.org/jimmerioles/bitcoin-currency-converter-php
-[link-codacy]: https://www.codacy.com/app/jimmerioles/bitcoin-currency-converter-php
+[link-coverage]: https://codeclimate.com/github/jimmerioles/bitcoin-currency-converter-php/coverage
 [link-code-quality]: https://codeclimate.com/github/jimmerioles/bitcoin-currency-converter-php
 [link-downloads]: https://packagist.org/packages/jimmerioles/bitcoin-currency-converter-php/stats
 [link-author]: https://twitter.com/jimmerioles
