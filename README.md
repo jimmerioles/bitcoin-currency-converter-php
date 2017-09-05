@@ -24,7 +24,7 @@ $ composer require jimmerioles/bitcoin-currency-converter-php
 ``` php
 use Jimmerioles\BitcoinCurrencyConverter\Converter;
 
-$convert = new Converter; // uses Coinbase as default provider
+$convert = new Converter;              // uses Coinbase as default provider
 echo $convert->toCurrency('USD', 0.5); // 2000.00
 echo $convert->toCurrency('LTC', 0.5); // 10.12345678
 ```
@@ -42,7 +42,7 @@ echo to_currency('LTC', 0.5); // 10.12345678
 ``` php
 use Jimmerioles\BitcoinCurrencyConverter\Converter;
 
-$convert = new Converter; // uses Coinbase as default provider
+$convert = new Converter;         // uses Coinbase as default provider
 echo $convert->toBtc(100, 'USD'); // 0.12345678
 echo $convert->toBtc(20, 'LTC');  // 1.12345678
 ```
