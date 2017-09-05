@@ -43,7 +43,7 @@ class CoindeskProviderTest extends TestCase
     public function test_getRate_throws_exception_when_passed_with_invalid_currency_code_argument()
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage("Argument \$currencyCode not valid currency code, 'FOO' given.");
+        $this->expectExceptionMessage("Argument passed not a valid currency code, 'FOO' given.");
 
         $mock = new MockHandler([new Response(200, ['Content-Type' => 'application/json'], $this->stubBody())]);
         $handler = HandlerStack::create($mock);
