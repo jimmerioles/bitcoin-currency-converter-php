@@ -24,7 +24,7 @@ $ composer require jimmerioles/bitcoin-currency-converter-php
 ``` php
 use Jimmerioles\BitcoinCurrencyConverter\Converter;
 
-$convert = new Converter;
+$convert = new Converter; // uses Coinbase as default provider
 echo $convert->toCurrency('USD', 0.5); // 2000.00
 echo $convert->toCurrency('LTC', 0.5); // 10.12345678
 ```
@@ -32,6 +32,7 @@ echo $convert->toCurrency('LTC', 0.5); // 10.12345678
 or use helper for convenience:
 
 ``` php
+// uses Coinbase as default provider
 echo to_currency('USD', 0.5); // 2000.00
 echo to_currency('LTC', 0.5); // 10.12345678
 ```
@@ -41,7 +42,7 @@ echo to_currency('LTC', 0.5); // 10.12345678
 ``` php
 use Jimmerioles\BitcoinCurrencyConverter\Converter;
 
-$convert = new Converter;
+$convert = new Converter; // uses Coinbase as default provider
 echo $convert->toBtc(100, 'USD'); // 0.12345678
 echo $convert->toBtc(20, 'LTC');  // 1.12345678
 ```
@@ -49,6 +50,7 @@ echo $convert->toBtc(20, 'LTC');  // 1.12345678
 or use helper for convenience:
 
 ``` php
+// uses Coinbase as default provider
 echo to_btc(100, 'USD'); // 0.12345678
 echo to_btc(20, 'LTC');  // 2.12345678
 ```
@@ -64,6 +66,15 @@ use Jimmerioles\BitcoinCurrencyConverter\Provider\BitpayProvider;
 $convert = Converter(new CoinbaseProvider);
 $convert = Converter(new CoindeskProvider);
 $convert = Converter(new BitpayProvider);
+```
+
+or use helper for convenience:
+
+``` php
+echo to_currency('USD', 0.5, new Coindesk); // 2000.00
+echo to_currency('LTC', 0.5, new Bitpay);   // 10.12345678
+echo to_btc(100, 'USD', new Coindesk);      // 0.12345678
+echo to_btc(20, 'LTC', new Bitpay);         // 2.12345678
 ```
 
 ## Change log
@@ -84,7 +95,7 @@ $ phpunit --testdox
 
 ## Contributing
 
-Open for suggestions and requests. Please request an [issue](https://github.com/jimmerioles/bitcoin-currency-converter-php/issues/new) or do [pull requests](https://github.com/jimmerioles/bitcoin-currency-converter-php/pull/new/master).
+Open for suggestions and requests. Please request through [issue](https://github.com/jimmerioles/bitcoin-currency-converter-php/issues/new) or [pull requests](https://github.com/jimmerioles/bitcoin-currency-converter-php/pull/new/master).
 
 ## Security
 
@@ -93,7 +104,7 @@ If you discover any security related issues, please email jimwisleymerioles@gmai
 ## Credits
 
 - [Jim Merioles][link-author]
-- [All Contributors][link-contributors]
+- [Contributors][link-contributors]
 
 ## License
 
