@@ -10,7 +10,7 @@ php:
 install:
   - composer install -n
 script:
-  - php vendor/bin/phpunit
+  - php vendor/bin/phpunit --coverage-clover clover.xml
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
