@@ -7,7 +7,14 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-A simple and lightweight bitcoin to currency converter and vice versa based on current exchange rates from your chosen provider: Coinbase, Coindesk, Bitpay and etc.
+A simple, lightweight, extensible and fast bitcoin to currency converter and vice versa based on current exchange rates from your chosen provider: Coinbase, Coindesk, Bitpay and etc.
+
+## Features
+* Convert Bitcoin to any currency (fiat or another cryptocurrency).
+* Convert any currency (fiat or another cryptocurrency) to Bitcoin.
+* Swap different exchange rates providers: Coinbase, Coindesk, Bitpay.
+* Baked-in caching (default: filesystem).
+* Everything is swappable and extendable.
 
 ## Install
 
@@ -87,7 +94,7 @@ Please see [CHANGELOG](https://github.com/jimmerioles/bitcoin-currency-converter
 $ phpunit
 ```
 
-#### Show features and specs:
+#### Show full specs and features:
 
 ``` bash
 $ phpunit --testdox
