@@ -2,7 +2,7 @@
 
 namespace Jimmerioles\BitcoinCurrencyConverter\Provider;
 
-class CoinbaseProvider extends AbstractProvider //TODO: after adding class try append here implements ProviderInterface
+class CoinbaseProvider extends AbstractProvider
 {
     /**
      * Provider's exchange rates API endpoint, with 1 BTC as base.
