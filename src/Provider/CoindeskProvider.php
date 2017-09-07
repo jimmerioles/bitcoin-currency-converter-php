@@ -12,6 +12,13 @@ class CoindeskProvider extends AbstractProvider
     protected $apiEndpoint = 'https://api.coindesk.com/v1/bpi/currentprice.json';
 
     /**
+     * Cache key to use when storing and retrieving from cache.
+     *
+     * @var string
+     */
+    protected $cacheKey = 'coindesk-cache-key';
+
+    /**
      * Parse retrieved JSON data to exchange rates associative array.
      * i.e. ['BTC' => 1, 'USD' => 4000.00, ...]
      *

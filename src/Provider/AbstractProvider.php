@@ -3,6 +3,10 @@
 namespace Jimmerioles\BitcoinCurrencyConverter\Provider;
 
 use GuzzleHttp\Client;
+use Illuminate\Cache\FileStore;
+use Illuminate\Cache\Repository;
+use Psr\SimpleCache\CacheInterface;
+use Illuminate\Filesystem\Filesystem;
 use Jimmerioles\BitcoinCurrencyConverter\Exception\InvalidArgumentException;
 use Jimmerioles\BitcoinCurrencyConverter\Exception\UnexpectedValueException;
 
@@ -23,17 +27,36 @@ abstract class AbstractProvider implements ProviderInterface
     protected $apiEndpoint = '';
 
     /**
+     * Directory to store file cache relative to project root directory.
+     *
+     * @var string
+     */
+    protected $cacheDir = 'cache';
+
+    /**
+     * Cache's time to live in minutes.
+     *
+     * @var integer
+     */
+    protected $cacheTTL = 60;
+
+    /**
      * Create provider instance.
      *
      * @param Client $client
      */
-    public function __construct(Client $client = null)
+    public function __construct(Client $client = null, CacheInterface $cache = null)
     {
         if (is_null($client)) {
             $client = new Client;
         }
 
+        if (is_null($cache)) {
+            $cache = new Repository(new FileStore(new Filesystem, project_root_path($this->cacheDir)));
+        }
+
         $this->client = $client;
+        $this->cache = $cache;
     }
 
     /**
@@ -99,7 +122,15 @@ abstract class AbstractProvider implements ProviderInterface
      */
     protected function retrieveExchangeRates()
     {
-        return $this->parseToExchangeRatesArray($this->fetchExchangeRates());
+        if ($this->cache->has($this->cacheKey)) {
+            return $this->cache->get($this->cacheKey);
+        }
+
+        $exchangeRatesArray = $this->parseToExchangeRatesArray($this->fetchExchangeRates());
+
+        $this->cache->set($this->cacheKey, $exchangeRatesArray, $this->cacheTTL);
+
+        return $exchangeRatesArray;
     }
 
     /**

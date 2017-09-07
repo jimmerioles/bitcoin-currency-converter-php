@@ -2,6 +2,8 @@
 
 namespace Test;
 
+use Illuminate\Filesystem\Filesystem;
+
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
@@ -11,5 +13,7 @@ class TestCase extends BaseTestCase
         if (class_exists('Mockery')) {
             \Mockery::close();
         }
+
+        (new Filesystem)->deleteDirectory(project_root_path('cache'));
     }
 }

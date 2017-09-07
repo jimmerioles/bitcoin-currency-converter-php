@@ -2,7 +2,7 @@
 
 namespace Jimmerioles\BitcoinCurrencyConverter\Provider;
 
-class CoinbaseProvider extends AbstractProvider
+class CoinbaseProvider extends AbstractProvider //TODO: after adding class try append here implements ProviderInterface
 {
     /**
      * Provider's exchange rates API endpoint, with 1 BTC as base.
@@ -10,6 +10,13 @@ class CoinbaseProvider extends AbstractProvider
      * @var string
      */
     protected $apiEndpoint = 'https://api.coinbase.com/v2/exchange-rates?currency=BTC';
+
+    /**
+     * Cache key to use when storing and retrieving from cache.
+     *
+     * @var string
+     */
+    protected $cacheKey = 'coinbase-cache-key';
 
     /**
      * Parse retrieved JSON data to exchange rates associative array.
