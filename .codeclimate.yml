@@ -13,6 +13,9 @@ engines:
       standard: "PSR1,PSR2"
   phpmd:
     enabled: true
+    checks:
+      CleanCode/StaticAccess:
+        enabled: false
     config:
       file_extensions: "php"
       rulesets: "cleancode,codesize,controversial,design,naming,unusedcode"
