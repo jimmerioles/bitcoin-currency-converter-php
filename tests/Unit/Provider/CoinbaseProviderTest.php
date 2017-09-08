@@ -7,6 +7,7 @@ use \Mockery as m;
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
+use Illuminate\Cache\Repository;
 use Psr\SimpleCache\CacheInterface;
 use GuzzleHttp\Handler\MockHandler;
 use Jimmerioles\BitcoinCurrencyConverter\Provider\CoinbaseProvider;
@@ -110,6 +111,13 @@ class CoinbaseProviderTest extends TestCase
         $provider = new CoinbaseProvider;
 
         $this->assertAttributeInstanceOf(Client::class, 'client', $provider);
+    }
+
+    public function test_uses_illuminateCache_as_default_cache_implementation()
+    {
+        $provider = new CoinbaseProvider;
+
+        $this->assertAttributeInstanceOf(Repository::class, 'cache', $provider);
     }
 
     public function test_caches_exchange_rates_on_first_api_call()
