@@ -20,43 +20,30 @@ abstract class AbstractProvider implements ProviderInterface
     protected $client;
 
     /**
-     * Provider's exchange rates API endpoint, with 1 BTC as base.
-     *
-     * @var string
-     */
-    protected $apiEndpoint = '';
-
-    /**
-     * Directory to store file cache relative to project root directory.
-     *
-     * @var string
-     */
-    protected $cacheDir = 'cache';
-
-    /**
      * Cache's time to live in minutes.
      *
      * @var integer
      */
-    protected $cacheTTL = 60;
+    protected $cacheTTL;
 
     /**
      * Create provider instance.
      *
      * @param Client $client
      */
-    public function __construct(Client $client = null, CacheInterface $cache = null)
+    public function __construct(Client $client = null, CacheInterface $cache = null, $cacheTTL = 60)
     {
         if (is_null($client)) {
             $client = new Client;
         }
 
         if (is_null($cache)) {
-            $cache = new Repository(new FileStore(new Filesystem, project_root_path($this->cacheDir)));
+            $cache = new Repository(new FileStore(new Filesystem, project_root_path('cache')));
         }
 
         $this->client = $client;
         $this->cache = $cache;
+        $this->cacheTTL = $cacheTTL;
     }
 
     /**

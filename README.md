@@ -10,11 +10,11 @@
 A simple, lightweight, extensible and fast bitcoin to currency converter and vice versa based on current exchange rates from your chosen provider: Coinbase, Coindesk, Bitpay and etc.
 
 ## Features
-* Convert Bitcoin to any currency (fiat or another cryptocurrency).
-* Convert any currency (fiat or another cryptocurrency) to Bitcoin.
-* Swap different exchange rates providers: Coinbase, Coindesk, Bitpay.
-* Baked-in caching (default: filesystem).
-* Everything is swappable and extendable.
+* Convert Bitcoin to any currency (ISO 4217 fiat or another cryptocurrency).
+* Convert any currency (ISO 4217 fiat or another cryptocurrency) to Bitcoin.
+* Supports different exchange rates providers: Coinbase, Coindesk, Bitpay.
+* Baked-in caching with default filesystem (PSR16 compliant, swappable with your own or your framework's).
+* Everything is swappable and extensible.
 
 ## Install
 
@@ -70,18 +70,24 @@ use Jimmerioles\BitcoinCurrencyConverter\Provider\CoinbaseProvider;
 use Jimmerioles\BitcoinCurrencyConverter\Provider\CoindeskProvider;
 use Jimmerioles\BitcoinCurrencyConverter\Provider\BitpayProvider;
 
-$convert = Converter(new CoinbaseProvider);
-$convert = Converter(new CoindeskProvider);
-$convert = Converter(new BitpayProvider);
+$convert = new Converter(new CoinbaseProvider);
+$convert = new Converter(new CoindeskProvider);
+$convert = new Converter(new BitpayProvider);
 ```
 
 or use helper for convenience:
 
 ``` php
-echo to_currency('USD', 0.5, new Coindesk); // 2000.00
-echo to_currency('LTC', 0.5, new Bitpay);   // 10.12345678
-echo to_btc(100, 'USD', new Coindesk);      // 0.12345678
-echo to_btc(20, 'LTC', new Bitpay);         // 2.12345678
+echo to_currency('USD', 0.5, new CoindeskProvider); // 2000.00
+echo to_currency('LTC', 0.5, new BitpayProvider);   // 10.12345678
+echo to_btc(100, 'USD', new CoindeskProvider);      // 0.12345678
+echo to_btc(20, 'LTC', new BitpayProvider);         // 2.12345678
+```
+
+#### Specifying cache expire time (ttl) on provider:
+
+``` php
+new CoinbaseProvider($httpClient, $psr16CacheImplementation, 5); // cache expires in 5mins, defaults to 60mins
 ```
 
 ## Change log
