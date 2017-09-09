@@ -91,7 +91,7 @@ new CoinbaseProvider($httpClient, $psr16CacheImplementation, 5); // cache expire
 
 ## Change log
 
-Please see [CHANGELOG](https://github.com/jimmerioles/bitcoin-currency-converter-php/releases) for more information on what has changed recently.
+Please see [CHANGELOG](https://github.com/jimmerioles/bitcoin-currency-converter-php/blob/master/CHANGELOG.md) for more information on what has changed recently.
 
 ## Testing
 
