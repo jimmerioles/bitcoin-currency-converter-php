@@ -29,7 +29,9 @@ abstract class AbstractProvider implements ProviderInterface
     /**
      * Create provider instance.
      *
-     * @param Client $client
+     * @param Client|null         $client
+     * @param CacheInterface|null $cache
+     * @param integer             $cacheTTL
      */
     public function __construct(Client $client = null, CacheInterface $cache = null, $cacheTTL = 60)
     {

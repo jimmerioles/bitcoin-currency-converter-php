@@ -10,11 +10,10 @@
 A simple, lightweight, extensible and fast bitcoin to currency converter and vice versa based on current exchange rates from your chosen provider: Coinbase, Coindesk, Bitpay and etc.
 
 ## Features
-* Convert Bitcoin to any currency (ISO 4217 fiat or another cryptocurrency).
-* Convert any currency (ISO 4217 fiat or another cryptocurrency) to Bitcoin.
-* Supports different exchange rates providers: Coinbase, Coindesk, Bitpay.
-* Baked-in caching with default filesystem (PSR16 compliant, swappable with your own or your framework's).
-* Everything is swappable and extensible.
+* Convert Bitcoin to any currency (ISO 4217 fiat or another cryptocurrency)
+* Convert any currency (ISO 4217 fiat or another cryptocurrency) to Bitcoin
+* Supports different exchange rates providers: Coinbase, Coindesk, Bitpay
+* Baked-in caching (PSR16 compliant, swappable with your own or your framework's)
 
 ## Install
 
