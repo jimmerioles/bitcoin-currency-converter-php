@@ -136,3 +136,8 @@ The MIT License (MIT). Please see [License File](LICENSE) for more information.
 [link-downloads]: https://packagist.org/packages/jimmerioles/bitcoin-currency-converter-php/stats
 [link-author]: https://twitter.com/jimmerioles
 [link-contributors]: https://github.com/jimmerioles/bitcoin-currency-converter-php/graphs/contributors
+
+## Support on Beerpay
+Hey dude! Help me out for a couple of :beers:!
+
+[![Beerpay](https://beerpay.io/jimmerioles/bitcoin-currency-converter-php/badge.svg?style=beer-square)](https://beerpay.io/jimmerioles/bitcoin-currency-converter-php)  [![Beerpay](https://beerpay.io/jimmerioles/bitcoin-currency-converter-php/make-wish.svg?style=flat-square)](https://beerpay.io/jimmerioles/bitcoin-currency-converter-php?focus=wish)
