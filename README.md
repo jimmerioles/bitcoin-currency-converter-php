@@ -132,14 +132,21 @@ If you discover any security related issues, please email jimwisleymerioles@gmai
 
 The MIT License (MIT). Please see [License File](LICENSE) for more information.
 
+## Want to show appreciation?
+
+Help me find Satoshi! | or fuel me with Ether :coffee:
+------------ | ------------
+![Donate Bitcoin][ico-bitcoin] | ![Donate Ethereum][ico-ethereum]
+
+
 [ico-version]: https://img.shields.io/packagist/v/jimmerioles/bitcoin-currency-converter-php.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/jimmerioles/bitcoin-currency-converter-php/master.svg?style=flat-square
 [ico-coverage]: https://img.shields.io/codeclimate/coverage/github/jimmerioles/bitcoin-currency-converter-php.svg?style=flat-square
 [ico-code-quality]: https://img.shields.io/codeclimate/github/jimmerioles/bitcoin-currency-converter-php.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/jimmerioles/bitcoin-currency-converter-php.svg?style=flat-square
-[ico-make-wish]: https://beerpay.io/jimmerioles/bitcoin-currency-converter-php/make-wish.svg?style=flat-square
-[ico-beerpay]: https://beerpay.io/jimmerioles/bitcoin-currency-converter-php/badge.svg?style=beer-square
+[ico-bitcoin]: https://img.shields.io/badge/Bitcoin-1KBT3Mzsr2dZqhQqNYx4gum8Yuyd61UzNk-blue.svg
+[ico-ethereum]: https://img.shields.io/badge/Ethereum-0x7896E9C4118e495Eb7001a847BBFA3C29Dfc69d9-blue.svg
 
 [link-packagist]: https://packagist.org/packages/jimmerioles/bitcoin-currency-converter-php
 [link-travis]: https://travis-ci.org/jimmerioles/bitcoin-currency-converter-php
@@ -151,15 +158,7 @@ The MIT License (MIT). Please see [License File](LICENSE) for more information.
 [link-coinbase-rates]: https://www.coinbase.com/charts
 [link-coindesk-rates]: https://www.coindesk.com/price
 [link-bitpay-rates]: https://bitpay.com/bitcoin-exchange-rates
-[link-make-wish]: https://beerpay.io/jimmerioles/bitcoin-currency-converter-php?focus=wish
 [link-changelog]: https://github.com/jimmerioles/bitcoin-currency-converter-php/blob/master/CHANGELOG.md
 [link-issue]: https://github.com/jimmerioles/bitcoin-currency-converter-php/issues/new
 [link-pull-request]: https://github.com/jimmerioles/bitcoin-currency-converter-php/pull/new/master
-[link-beerpay]: https://beerpay.io/jimmerioles/bitcoin-currency-converter-php
 [link-contributing]: https://github.com/jimmerioles/bitcoin-currency-converter-php#contributing
-
-## Want to show your appreciation?
-
-Help me find Satoshi Nakamoto! :point_right: :trollface: | FOO
------------- | ------------
-1KBT3Mzsr2dZqhQqNYx4gum8Yuyd61UzNk | Foo
