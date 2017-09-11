@@ -14,9 +14,7 @@ Available exchange rates providers are:
 * [Coindesk][link-coindesk-rates]
 * [Bitpay][link-bitpay-rates]
 
-If you have any request for other exchange rates provider or other features that you would like for me to add see Contributing or:
-
-[![Make Wish][ico-make-wish]][link-make-wish]
+If you have any request for other exchange rates provider or other features that you would like for me to add see [Contributing][link-contributing].
 
 ## Features
 
@@ -158,9 +156,10 @@ The MIT License (MIT). Please see [License File](LICENSE) for more information.
 [link-issue]: https://github.com/jimmerioles/bitcoin-currency-converter-php/issues/new
 [link-pull-request]: https://github.com/jimmerioles/bitcoin-currency-converter-php/pull/new/master
 [link-beerpay]: https://beerpay.io/jimmerioles/bitcoin-currency-converter-php
+[link-contributing]: https://github.com/jimmerioles/bitcoin-currency-converter-php#contributing
 
 ## Want to show your appreciation?
 
-Buy me a beer! :beer: | Buy me a coffee! :coffee: | Help me find Satoshi! :point_right: :trollface: | Or just give me high five! :hand:
------------- | -------------
-[![Beerpay][ico-beerpay]][link-beerpay] | Content from cell 2
+Help me find Satoshi Nakamoto! :point_right: :trollface: | FOO
+------------ | ------------
+1KBT3Mzsr2dZqhQqNYx4gum8Yuyd61UzNk | Foo
