@@ -143,7 +143,7 @@ Help me find Satoshi! | or fuel me with Ether :coffee:
 [ico-version]: https://img.shields.io/packagist/v/jimmerioles/bitcoin-currency-converter-php.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/jimmerioles/bitcoin-currency-converter-php/master.svg?style=flat-square
-[ico-coverage]: https://api.codeclimate.com/v1/badges/438413be3c404775866c/test_coverage
+[ico-coverage]: https://img.shields.io/codeclimate/c/jimmerioles/bitcoin-currency-converter-php.svg
 [ico-code-quality]: https://img.shields.io/codeclimate/github/jimmerioles/bitcoin-currency-converter-php.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/jimmerioles/bitcoin-currency-converter-php.svg?style=flat-square
 [ico-bitcoin]: https://img.shields.io/badge/Bitcoin-1KBT3Mzsr2dZqhQqNYx4gum8Yuyd61UzNk-blue.svg
@@ -165,3 +165,4 @@ Help me find Satoshi! | or fuel me with Ether :coffee:
 [link-contributing]: https://github.com/jimmerioles/bitcoin-currency-converter-php#contributing
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/438413be3c404775866c/test_coverage)](https://codeclimate.com/github/jimmerioles/bitcoin-currency-converter-php/test_coverage)
+[![Code Climate](https://img.shields.io/codeclimate/c/jimmerioles/bitcoin-currency-converter-php.svg?style=flat-square)](https://codeclimate.com/github/jimmerioles/bitcoin-currency-converter-php/test_coverage)
