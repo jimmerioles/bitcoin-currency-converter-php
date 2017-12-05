@@ -134,7 +134,7 @@ The MIT License (MIT). Please see [License File](LICENSE) for more information.
 
 ### Want to show some :heart:?
 
-Help me find Satoshi Nakamoto! | or fuel me with Ether :coffee:
+Help me find Satoshi Nakamoto! | Fuel me with Ether :coffee:
 ------------ | ------------
 ![Donate Bitcoin][ico-bitcoin] | ![Donate Ethereum][ico-ethereum]
 
