@@ -3,8 +3,8 @@
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE)
 [![Build Status][ico-travis]][link-travis]
-[![Coverage Status][ico-coverage]][link-coverage]
-[![Quality Score][ico-code-quality]][link-code-quality]
+[![Test Coverage][ico-coverage]][link-coverage]
+[![Maintainability][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
 This library helps developers that need to easily convert bitcoin to fiat currency(ISO 4217) or to another cryptocurrency and vice versa from your exchange rates provider of choice.
@@ -142,7 +142,7 @@ Help me find Satoshi! | or fuel me with Ether :coffee:
 [ico-version]: https://img.shields.io/packagist/v/jimmerioles/bitcoin-currency-converter-php.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/jimmerioles/bitcoin-currency-converter-php/master.svg?style=flat-square
-[ico-coverage]: https://img.shields.io/codeclimate/coverage/github/jimmerioles/bitcoin-currency-converter-php.svg?style=flat-square
+[ico-coverage]: https://api.codeclimate.com/v1/badges/438413be3c404775866c/test_coverage
 [ico-code-quality]: https://img.shields.io/codeclimate/github/jimmerioles/bitcoin-currency-converter-php.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/jimmerioles/bitcoin-currency-converter-php.svg?style=flat-square
 [ico-bitcoin]: https://img.shields.io/badge/Bitcoin-1KBT3Mzsr2dZqhQqNYx4gum8Yuyd61UzNk-blue.svg
@@ -150,7 +150,7 @@ Help me find Satoshi! | or fuel me with Ether :coffee:
 
 [link-packagist]: https://packagist.org/packages/jimmerioles/bitcoin-currency-converter-php
 [link-travis]: https://travis-ci.org/jimmerioles/bitcoin-currency-converter-php
-[link-coverage]: https://codeclimate.com/github/jimmerioles/bitcoin-currency-converter-php/coverage
+[link-coverage]: https://codeclimate.com/github/jimmerioles/bitcoin-currency-converter-php/test_coverage
 [link-code-quality]: https://codeclimate.com/github/jimmerioles/bitcoin-currency-converter-php
 [link-downloads]: https://packagist.org/packages/jimmerioles/bitcoin-currency-converter-php/stats
 [link-author]: https://twitter.com/jimmerioles
@@ -162,3 +162,5 @@ Help me find Satoshi! | or fuel me with Ether :coffee:
 [link-issue]: https://github.com/jimmerioles/bitcoin-currency-converter-php/issues/new
 [link-pull-request]: https://github.com/jimmerioles/bitcoin-currency-converter-php/pull/new/master
 [link-contributing]: https://github.com/jimmerioles/bitcoin-currency-converter-php#contributing
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/438413be3c404775866c/test_coverage)](https://codeclimate.com/github/jimmerioles/bitcoin-currency-converter-php/test_coverage)
