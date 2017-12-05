@@ -143,10 +143,10 @@ Help me find Satoshi! | or fuel me with Ether :coffee:
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/jimmerioles/bitcoin-currency-converter-php/master.svg?style=flat-square
 [ico-coverage]: https://img.shields.io/codeclimate/c/jimmerioles/bitcoin-currency-converter-php.svg?style=flat-square
-[ico-maintainability]: https://img.shields.io/codeclimate/maintainability/jimmerioles/bitcoin-currency-converter-php.svg
+[ico-maintainability]: https://img.shields.io/codeclimate/maintainability/jimmerioles/bitcoin-currency-converter-php.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/jimmerioles/bitcoin-currency-converter-php.svg?style=flat-square
-[ico-bitcoin]: https://img.shields.io/badge/Bitcoin-1KBT3Mzsr2dZqhQqNYx4gum8Yuyd61UzNk-blue.svg
-[ico-ethereum]: https://img.shields.io/badge/Ethereum-0x7896E9C4118e495Eb7001a847BBFA3C29Dfc69d9-blue.svg
+[ico-bitcoin]: https://img.shields.io/badge/Bitcoin-1KBT3Mzsr2dZqhQqNYx4gum8Yuyd61UzNk-blue.svg?style=flat-square
+[ico-ethereum]: https://img.shields.io/badge/Ethereum-0x7896E9C4118e495Eb7001a847BBFA3C29Dfc69d9-blue.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/jimmerioles/bitcoin-currency-converter-php
 [link-travis]: https://travis-ci.org/jimmerioles/bitcoin-currency-converter-php
