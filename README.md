@@ -166,3 +166,4 @@ Help me find Satoshi! | or fuel me with Ether :coffee:
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/438413be3c404775866c/test_coverage)](https://codeclimate.com/github/jimmerioles/bitcoin-currency-converter-php/test_coverage)
 [![Code Climate](https://img.shields.io/codeclimate/c/jimmerioles/bitcoin-currency-converter-php.svg?style=flat-square)](https://codeclimate.com/github/jimmerioles/bitcoin-currency-converter-php/test_coverage)
+<a href="https://codeclimate.com/github/jimmerioles/bitcoin-currency-converter-php/maintainability"><img src="https://api.codeclimate.com/v1/badges/438413be3c404775866c/maintainability" /></a>
