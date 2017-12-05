@@ -162,3 +162,5 @@ Help me find Satoshi! | or fuel me with Ether :coffee:
 [link-issue]: https://github.com/jimmerioles/bitcoin-currency-converter-php/issues/new
 [link-pull-request]: https://github.com/jimmerioles/bitcoin-currency-converter-php/pull/new/master
 [link-contributing]: https://github.com/jimmerioles/bitcoin-currency-converter-php#contributing
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/438413be3c404775866c/test_coverage)](https://codeclimate.com/github/jimmerioles/bitcoin-currency-converter-php/test_coverage)
