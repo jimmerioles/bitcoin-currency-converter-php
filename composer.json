@@ -12,9 +12,15 @@
             "email": "jimwisleymerioles@gmail.com"
         }
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/depneuma/jimmerioles/bitcoin-currency-converter-php"
+        }
+    ],
     "require": {
         "php": ">=7.0",
-        "guzzlehttp/guzzle": "^6.3",
+        "guzzlehttp/guzzle": "^7.0.1",
         "illuminate/cache": "^5.5",
         "illuminate/filesystem": "^5.5",
         "composer/composer": "^1.5"
