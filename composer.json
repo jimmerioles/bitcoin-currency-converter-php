@@ -19,6 +19,7 @@
         }
     ],
     "require": {
+        "jimmerioles/bitcoin-currency-converter-php": "dev-new",
         "php": ">=7.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "illuminate/cache": "^5.5",
