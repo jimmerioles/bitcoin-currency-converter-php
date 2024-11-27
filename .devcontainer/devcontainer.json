@@ -1,0 +1,4 @@
+{
+    "name": "Bitcoin Currency Converter PHP DevContainer",
+    "image": "mcr.microsoft.com/devcontainers/php:7.4"
+}
