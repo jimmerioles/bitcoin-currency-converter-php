@@ -1,4 +1,15 @@
 {
-    "name": "Bitcoin Currency Converter PHP DevContainer",
-    "image": "mcr.microsoft.com/devcontainers/php:7.4"
+    "name": "Debian",
+    "image": "mcr.microsoft.com/devcontainers/base:bookworm",
+    "features": {
+        "ghcr.io/shyim/devcontainers-features/php:latest": {
+            "installComposer": true,
+            // Change PHP version to 7.1 || 7.2 || 7.3 || 7.4 to test
+            "version": "7.0",
+            "disableAllExtensions": true,
+            "extensionsExtra": "mbstring xml curl"
+        }
+    },
+    // Automatically install dependencies and run the tests so you can see in dev container logs if it works
+    "postCreateCommand": "[ -d vendor ] && rm -rf vendor || true; [ -f composer.lock ] && rm composer.lock || true && composer install && php --version && vendor/bin/phpunit"
 }
