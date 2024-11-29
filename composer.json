@@ -3,8 +3,14 @@
     "description": "A simple and lightweight bitcoin to currency converter and vice versa based on current exchange rates from your chosen provider: Coinbase, Coindesk, Bitpay and etc.",
     "type": "library",
     "keywords": [
-            "bitcoin", "currency", "converter", "coinbase", "coindesk", "bitpay", "cryptocurrency"
-        ],
+        "bitcoin",
+        "currency",
+        "converter",
+        "coinbase",
+        "coindesk",
+        "bitpay",
+        "cryptocurrency"
+    ],
     "license": "MIT",
     "authors": [
         {
@@ -13,7 +19,7 @@
         }
     ],
     "require": {
-        "php": ">=7.0",
+        "php": "^7.0",
         "guzzlehttp/guzzle": "^6.3",
         "illuminate/cache": "^5.5",
         "illuminate/filesystem": "^5.5",
@@ -39,7 +45,7 @@
             "Test\\": "tests/"
         }
     },
-    "prefer-stable" : true,
+    "prefer-stable": true,
     "config": {
         "allow-plugins": {
             "kylekatarnls/update-helper": true
