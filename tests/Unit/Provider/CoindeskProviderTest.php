@@ -2,7 +2,6 @@
 
 namespace Test\Unit\Provider;
 
-use Test\TestCase;
 use \Mockery as m;
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
@@ -14,7 +13,7 @@ use Jimmerioles\BitcoinCurrencyConverter\Provider\CoindeskProvider;
 use Jimmerioles\BitcoinCurrencyConverter\Exception\InvalidArgumentException;
 use Jimmerioles\BitcoinCurrencyConverter\Exception\UnexpectedValueException;
 
-class CoindeskProviderTest extends TestCase
+class CoindeskProviderTest extends ProviderTest
 {
     public function test_getRate_gets_rate_of_currency()
     {
@@ -162,7 +161,7 @@ class CoindeskProviderTest extends TestCase
 
     private function stubBody()
     {
-        return '{"time":{"updated":"Aug 30, 2017 05:17:00 UTC","updatedISO":"2017-08-30T05:17:00+00:00","updateduk":"Aug 30, 2017 at 06:17 BST"},"disclaimer":"This data was produced from the CoinDesk Bitcoin Price Index (USD). Non-USD currency data converted using hourly conversion rate from openexchangerates.org","chartName":"Bitcoin","bpi":{"USD":{"code":"USD","symbol":"$","rate":"4,665.2388","description":"United States Dollar","rate_float":4665.2388},"GBP":{"code":"GBP","symbol":"£","rate":"3,607.9790","description":"British Pound Sterling","rate_float":3607.979},"EUR":{"code":"EUR","symbol":"€","rate":"3,896.2674","description":"Euro","rate_float":3896.2674}}}';
+        return $this->getStubResponse('tests/fixtures/coindesk-response.json');
     }
 
     private function ratesArrayStub()

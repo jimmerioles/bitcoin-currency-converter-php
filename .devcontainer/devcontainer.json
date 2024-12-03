@@ -1,5 +1,5 @@
 {
-    "name": "Debian",
+    "name": "Bitcoin Currency Converter PHP",
     "image": "mcr.microsoft.com/devcontainers/base:bookworm",
     "features": {
         "ghcr.io/shyim/devcontainers-features/php:latest": {
@@ -15,7 +15,8 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "GitHub.vscode-github-actions"
+                "GitHub.vscode-github-actions",
+                "bmewburn.vscode-intelephense-client"
             ]
         }
     }
