@@ -9,7 +9,7 @@ class BitpayProvider extends AbstractProvider
      *
      * @var string
      */
-    protected $apiEndpoint = 'https://bitpay.com/api/rates';
+    protected static $apiEndpoint = 'https://bitpay.com/api/rates';
 
     /**
      * Cache key to use when storing and retrieving from cache.

@@ -9,7 +9,7 @@ class CoindeskProvider extends AbstractProvider
      *
      * @var string
      */
-    protected $apiEndpoint = 'https://api.coindesk.com/v1/bpi/currentprice.json';
+    protected static $apiEndpoint = 'https://api.coindesk.com/v1/bpi/currentprice.json';
 
     /**
      * Cache key to use when storing and retrieving from cache.

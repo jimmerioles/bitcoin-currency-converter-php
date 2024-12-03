@@ -129,13 +129,23 @@ abstract class AbstractProvider implements ProviderInterface
      */
     protected function fetchExchangeRates()
     {
-        $response = $this->client->request('GET', $this->apiEndpoint);
+        $response = $this->client->request('GET', self::getApiEndpoint());
 
         if ($response->getStatusCode() != 200) {
             throw new UnexpectedValueException("Not OK response received from API endpoint.");
         }
 
         return $response->getBody();
+    }
+
+    /**
+     * Get the API endpoint.
+     *
+     * @return string
+     */
+    public static function getApiEndpoint()
+    {
+        return static::$apiEndpoint;
     }
 
     /**

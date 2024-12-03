@@ -9,7 +9,7 @@ class CoinbaseProvider extends AbstractProvider
      *
      * @var string
      */
-    protected $apiEndpoint = 'https://api.coinbase.com/v2/exchange-rates?currency=BTC';
+    protected static $apiEndpoint = 'https://api.coinbase.com/v2/exchange-rates?currency=BTC';
 
     /**
      * Cache key to use when storing and retrieving from cache.
