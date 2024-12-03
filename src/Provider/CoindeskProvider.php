@@ -28,6 +28,7 @@ class CoindeskProvider extends AbstractProvider
     protected function parseToExchangeRatesArray($rawJsonData)
     {
         $arrayData = json_decode($rawJsonData, true);
+        $exchangeRatesArray = [];
 
         foreach ($arrayData['bpi'] as $value) {
             $exchangeRatesArray[$value['code']] = $value['rate_float'];

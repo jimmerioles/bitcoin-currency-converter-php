@@ -28,6 +28,7 @@ class BitpayProvider extends AbstractProvider
     protected function parseToExchangeRatesArray($rawJsonData)
     {
         $arrayData = json_decode($rawJsonData, true);
+        $exchangeRatesArray = [];
 
         foreach ($arrayData as $data) {
             $exchangeRatesArray[$data['code']] = $data['rate'];
