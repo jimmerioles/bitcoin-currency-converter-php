@@ -2,7 +2,7 @@
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE)
-[![Build Status][ico-travis]][link-travis]
+[![PHP 7.* Tests][ico-github-actions]][link-github-actions]
 [![Test Coverage][ico-coverage]][link-coverage]
 [![Maintainability][ico-maintainability]][link-maintainability]
 [![Total Downloads][ico-downloads]][link-downloads]
@@ -141,7 +141,7 @@ Let's find Satoshi Nakamoto! | or let's have a :coffee:
 
 [ico-version]: https://img.shields.io/packagist/v/jimmerioles/bitcoin-currency-converter-php.svg?style=flat
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat
-[ico-travis]: https://img.shields.io/travis/jimmerioles/bitcoin-currency-converter-php/master.svg?style=flat
+[ico-github-actions]: https://github.com/jimmerioles/bitcoin-currency-converter-php/actions/workflows/php-tests.yml/badge.svg
 [ico-coverage]: https://api.codeclimate.com/v1/badges/438413be3c404775866c/test_coverage
 [ico-maintainability]: https://api.codeclimate.com/v1/badges/438413be3c404775866c/maintainability
 [ico-downloads]: https://img.shields.io/packagist/dt/jimmerioles/bitcoin-currency-converter-php.svg?style=flat
@@ -149,7 +149,7 @@ Let's find Satoshi Nakamoto! | or let's have a :coffee:
 [ico-ethereum]: https://img.shields.io/badge/Ethereum-0x7896E9C4118e495Eb7001a847BBFA3C29Dfc69d9-blue.svg?style=flat
 
 [link-packagist]: https://packagist.org/packages/jimmerioles/bitcoin-currency-converter-php
-[link-travis]: https://travis-ci.org/jimmerioles/bitcoin-currency-converter-php
+[link-github-actions]: https://github.com/jimmerioles/bitcoin-currency-converter-php/actions/workflows/php-tests.yml
 [link-coverage]: https://codeclimate.com/github/jimmerioles/bitcoin-currency-converter-php/test_coverage
 [link-maintainability]: https://codeclimate.com/github/jimmerioles/bitcoin-currency-converter-php/maintainability
 [link-downloads]: https://packagist.org/packages/jimmerioles/bitcoin-currency-converter-php/stats
