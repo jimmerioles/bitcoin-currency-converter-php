@@ -2,7 +2,6 @@
 
 namespace Jimmerioles\BitcoinCurrencyConverter;
 
-use GuzzleHttp\Client;
 use Jimmerioles\BitcoinCurrencyConverter\Provider\CoinbaseProvider;
 use Jimmerioles\BitcoinCurrencyConverter\Provider\ProviderInterface;
 use Jimmerioles\BitcoinCurrencyConverter\Exception\InvalidArgumentException;
