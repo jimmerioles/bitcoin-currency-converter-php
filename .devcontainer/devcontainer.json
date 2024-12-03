@@ -11,5 +11,12 @@
         }
     },
     // Automatically install dependencies and run the tests so you can see in dev container logs if it works
-    "postCreateCommand": "[ -d vendor ] && rm -rf vendor || true; [ -f composer.lock ] && rm composer.lock || true && composer install && php --version && vendor/bin/phpunit"
+    "postCreateCommand": "[ -d vendor ] && rm -rf vendor || true; [ -f composer.lock ] && rm composer.lock || true && composer install && php --version && vendor/bin/phpunit",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "GitHub.vscode-github-actions"
+            ]
+        }
+    }
 }
