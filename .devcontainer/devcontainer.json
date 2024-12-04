@@ -17,7 +17,10 @@
             "extensions": [
                 "GitHub.vscode-github-actions",
                 "bmewburn.vscode-intelephense-client"
-            ]
+            ],
+            "settings": {
+                "intelephense.environment.phpVersion": "7.0"
+            }
         }
     }
 }

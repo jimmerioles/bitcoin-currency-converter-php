@@ -1,3 +1,5 @@
+/.devcontainer      export-ignore
+/.github            export-ignore
 /tests              export-ignore
 .codeclimate.yml    export-ignore
 .gitattributes      export-ignore
