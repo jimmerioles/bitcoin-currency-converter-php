@@ -2,6 +2,8 @@
 
 namespace Jimmerioles\BitcoinCurrencyConverter\Provider;
 
+use Jimmerioles\BitcoinCurrencyConverter\Exception\InvalidArgumentException;
+
 class CoinbaseProvider extends AbstractProvider
 {
     /**
@@ -28,6 +30,10 @@ class CoinbaseProvider extends AbstractProvider
     protected function parseToExchangeRatesArray($rawJsonData): array
     {
         $arrayData = json_decode($rawJsonData, true);
+
+        if (!is_array($arrayData)) {
+            throw new InvalidArgumentException('Invalid JSON data provided.');
+        }
 
         return $arrayData['data']['rates'];
     }

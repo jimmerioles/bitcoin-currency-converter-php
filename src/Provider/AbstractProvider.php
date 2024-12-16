@@ -118,7 +118,11 @@ abstract class AbstractProvider implements ProviderInterface
     protected function retrieveExchangeRates(): array
     {
         if ($this->cache->has($this->cacheKey)) {
-            return $this->cache->get($this->cacheKey);
+            $cachedExchangeRates = $this->cache->get($this->cacheKey);
+
+            if (is_array($cachedExchangeRates)) {
+                return $cachedExchangeRates;
+            }
         }
 
         $exchangeRatesArray = $this->parseToExchangeRatesArray($this->fetchExchangeRates());
@@ -130,10 +134,8 @@ abstract class AbstractProvider implements ProviderInterface
 
     /**
      * Fetch exchange rates json data from API endpoint.
-     *
-     * @return string
      */
-    protected function fetchExchangeRates()
+    protected function fetchExchangeRates(): string
     {
         $response = $this->client->request('GET', self::getApiEndpoint());
 
@@ -158,8 +160,7 @@ abstract class AbstractProvider implements ProviderInterface
      * Parse retrieved JSON data to exchange rates associative array.
      * i.e. ['BTC' => 1, 'USD' => 4000.00, ...]
      *
-     * @param  string $rawJsonData
      * @return array<string, int|float>
      */
-    abstract protected function parseToExchangeRatesArray($rawJsonData): array;
+    abstract protected function parseToExchangeRatesArray(string $rawJsonData): array;
 }

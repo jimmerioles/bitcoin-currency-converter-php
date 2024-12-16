@@ -2,6 +2,8 @@
 
 namespace Jimmerioles\BitcoinCurrencyConverter\Provider;
 
+use Jimmerioles\BitcoinCurrencyConverter\Exception\InvalidArgumentException;
+
 class CoindeskProvider extends AbstractProvider
 {
     /**
@@ -27,6 +29,11 @@ class CoindeskProvider extends AbstractProvider
     protected function parseToExchangeRatesArray($rawJsonData): array
     {
         $arrayData = json_decode($rawJsonData, true);
+
+        if (!is_array($arrayData)) {
+            throw new InvalidArgumentException('Invalid JSON data provided.');
+        }
+
         $exchangeRatesArray = [];
 
         foreach ($arrayData['bpi'] as $value) {
