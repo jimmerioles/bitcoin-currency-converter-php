@@ -6,12 +6,18 @@ use Test\TestCase;
 
 abstract class ProviderTest extends TestCase
 {
-    protected string|bool $stubResponse = false;
+    protected ?string $stubResponse = null;
 
-    protected function getStubResponse(string $fixturesPath = ''): string|bool
+    protected function getStubResponse(string $fixturesPath = ''): string
     {
         if (! $this->stubResponse) {
-            $this->stubResponse = file_get_contents(project_root_path($fixturesPath));
+            $parsed = file_get_contents(project_root_path($fixturesPath));
+
+            if (!$parsed) {
+                return '{}';
+            }
+
+            $this->stubResponse = $parsed;
         }
 
         return $this->stubResponse;
