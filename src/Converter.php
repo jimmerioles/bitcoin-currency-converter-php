@@ -23,11 +23,9 @@ class Converter
     /**
      * Convert Bitcoin amount to a specific currency.
      *
-     * @param  string $currencyCode
-     * @param  float  $btcAmount
      * @return float
      */
-    public function toCurrency($currencyCode, $btcAmount)
+    public function toCurrency(string $currencyCode, float $btcAmount)
     {
         $rate = $this->getRate($currencyCode);
 
@@ -79,11 +77,9 @@ class Converter
     /**
      * Convert currency amount to Bitcoin.
      *
-     * @param  float  $amount
-     * @param  string $currencyCode
      * @return float
      */
-    public function toBtc($amount, $currencyCode)
+    public function toBtc(float $amount, string $currencyCode)
     {
         $rate = $this->getRate($currencyCode);
 

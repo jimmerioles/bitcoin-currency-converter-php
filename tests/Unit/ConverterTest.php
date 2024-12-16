@@ -7,7 +7,6 @@ use Test\TestCase;
 use Jimmerioles\BitcoinCurrencyConverter\Converter;
 use Jimmerioles\BitcoinCurrencyConverter\Provider\CoinbaseProvider;
 use Jimmerioles\BitcoinCurrencyConverter\Provider\ProviderInterface;
-use Jimmerioles\BitcoinCurrencyConverter\Exception\InvalidArgumentException;
 use ReflectionClass;
 
 class ConverterTest extends TestCase
@@ -56,18 +55,6 @@ class ConverterTest extends TestCase
         $this->assertEquals(3.34074074, $result);
     }
 
-    public function test_toCurrency_throws_exception_when_passed_with_non_numeric_btcAmount_argument()
-    {
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage("Argument \$btcAmount should be numeric, 'foooo' given.");
-
-        $mock = m::mock(ProviderInterface::class);
-        $mock->shouldReceive('getRate')->once()->with('USD')->andReturn(1);
-        $convert = new Converter($mock);
-
-        $convert->toCurrency('USD', 'foooo');
-    }
-
     public function test_toBtc_converts_fiat_currency_to_btc()
     {
         $mock = m::mock(ProviderInterface::class);
@@ -99,18 +86,6 @@ class ConverterTest extends TestCase
         $result = $convert->toBtc(500, 'USD');
 
         $this->assertEquals(0.14181742, $result);
-    }
-
-    public function test_toBtc_throws_exception_when_passed_with_non_numeric_amount_argument()
-    {
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage("Argument \$amount should be numeric, 'foooo' given.");
-
-        $mock = m::mock(ProviderInterface::class);
-        $mock->shouldReceive('getRate')->once()->with('USD')->andReturn(1);
-        $convert = new Converter($mock);
-
-        $convert->toBtc('foooo', 'USD');
     }
 
     public function test_uses_coinbase_as_default_exchange_rates_provider()
