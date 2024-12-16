@@ -7,7 +7,6 @@ use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Handler\MockHandler;
-use Jimmerioles\BitcoinCurrencyConverter\Converter;
 use Jimmerioles\BitcoinCurrencyConverter\Provider\CoindeskProvider;
 
 class ConvertUsingHelperWithCoindeskExchangeRatesTest extends TestCase

@@ -9,7 +9,7 @@ class CurrencyCodeCheckerTest extends TestCase
 {
     public function test_can_check_if_currency_code()
     {
-        $check = new CurrencyCodeChecker;
+        $check = new CurrencyCodeChecker();
 
         $this->assertTrue($check->isCurrencyCode('USD'));
         $this->assertTrue($check->isCurrencyCode('GBP'));
@@ -18,7 +18,7 @@ class CurrencyCodeCheckerTest extends TestCase
 
     public function test_can_check_if_currency_code_in_lowerercaps()
     {
-        $check = new CurrencyCodeChecker;
+        $check = new CurrencyCodeChecker();
 
         $this->assertTrue($check->isCurrencyCode('usd'));
         $this->assertTrue($check->isCurrencyCode('gbp'));
@@ -27,7 +27,7 @@ class CurrencyCodeCheckerTest extends TestCase
 
     public function test_can_check_currency_code_if_fiat_currency()
     {
-        $check = new CurrencyCodeChecker;
+        $check = new CurrencyCodeChecker();
 
         $this->assertTrue($check->isFiatCurrency('USD'));
         $this->assertTrue($check->isFiatCurrency('GBP'));
@@ -36,7 +36,7 @@ class CurrencyCodeCheckerTest extends TestCase
 
     public function test_can_check_currency_code_if_crypto_currency()
     {
-        $check = new CurrencyCodeChecker;
+        $check = new CurrencyCodeChecker();
 
         $this->assertTrue($check->isCryptoCurrency('BTC'));
         $this->assertTrue($check->isCryptoCurrency('LTC'));
@@ -45,7 +45,7 @@ class CurrencyCodeCheckerTest extends TestCase
 
     public function test_can_check_currency_code_in_lowercaps_if_fiat_currency()
     {
-        $check = new CurrencyCodeChecker;
+        $check = new CurrencyCodeChecker();
 
         $this->assertTrue($check->isFiatCurrency('usd'));
         $this->assertTrue($check->isFiatCurrency('gbp'));
@@ -54,7 +54,7 @@ class CurrencyCodeCheckerTest extends TestCase
 
     public function test_can_check_currency_code_in_lowercaps_if_crypto_currency()
     {
-        $check = new CurrencyCodeChecker;
+        $check = new CurrencyCodeChecker();
 
         $this->assertTrue($check->isCryptoCurrency('btc'));
         $this->assertTrue($check->isCryptoCurrency('ltc'));

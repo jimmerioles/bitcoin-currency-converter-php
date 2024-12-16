@@ -2,7 +2,7 @@
 
 namespace Test\Unit\Provider;
 
-use \Mockery as m;
+use Mockery as m;
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
@@ -12,6 +12,9 @@ use Psr\SimpleCache\CacheInterface;
 use Jimmerioles\BitcoinCurrencyConverter\Provider\BitpayProvider;
 use Jimmerioles\BitcoinCurrencyConverter\Exception\InvalidArgumentException;
 use Jimmerioles\BitcoinCurrencyConverter\Exception\UnexpectedValueException;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\StreamInterface;
+use ReflectionClass;
 
 class BitpayProviderTest extends ProviderTest
 {
@@ -89,36 +92,61 @@ class BitpayProviderTest extends ProviderTest
 
     public function test_requests_exchange_rates_from_api_endpoint_only_once_with_same_instance()
     {
-        $mockResponse = m::mock(Response::class)->makePartial();
-        $mockResponse->shouldReceive('getBody')->once()->andReturn($this->stubBody());
+        $mockStream = m::mock(StreamInterface::class);
+        $mockStream->shouldReceive('__toString')->once()->andReturn($this->stubBody());
+
+        $mockResponse = m::mock(ResponseInterface::class);
+        $mockResponse->shouldReceive('getStatusCode')->once()->andReturn(200);
+        $mockResponse->shouldReceive('getBody')->once()->andReturn($mockStream);
 
         $mock = m::mock(Client::class);
         $mock->shouldReceive('request')->once()->andReturn($mockResponse);
 
         $provider = new BitpayProvider($mock);
 
-        $provider->getRate('USD');
-        $provider->getRate('USD');
+        $arrayData = json_decode($this->stubBody(), true);
+        $rates = [];
+        foreach ($arrayData as $data) {
+            $rates[$data['code']] = $data['rate'];
+        }
+
+        $this->assertEquals($rates['USD'], $provider->getRate('USD'));
+        $this->assertEquals($rates['USD'], $provider->getRate('USD'));
     }
 
     public function test_uses_guzzleHttp_as_default_http_client()
     {
-        $provider = new BitpayProvider;
+        $provider = new BitpayProvider();
 
-        $this->assertAttributeInstanceOf(Client::class, 'client', $provider);
+        $reflection = new ReflectionClass($provider);
+        $property = $reflection->getProperty('client');
+        $property->setAccessible(true);
+        $client = $property->getValue($provider);
+
+        $this->assertInstanceOf(Client::class, $client);
     }
 
     public function test_uses_illuminateCache_as_default_cache_implementation()
     {
-        $provider = new BitpayProvider;
+        $provider = new BitpayProvider();
 
-        $this->assertAttributeInstanceOf(Repository::class, 'cache', $provider);
+        $reflection = new ReflectionClass($provider);
+        $property = $reflection->getProperty('cache');
+        $property->setAccessible(true);
+        $cache = $property->getValue($provider);
+
+        $this->assertInstanceOf(Repository::class, $cache);
     }
 
     public function test_caches_exchange_rates_on_first_api_call()
     {
-        $mockResponse = m::mock(Response::class)->makePartial();
-        $mockResponse->shouldReceive('getBody')->once()->andReturn($this->stubBody());
+        $mockStream = m::mock(StreamInterface::class);
+        $mockStream->shouldReceive('__toString')->once()->andReturn($this->stubBody());
+
+        $mockResponse = m::mock(ResponseInterface::class);
+        $mockResponse->shouldReceive('getStatusCode')->once()->andReturn(200);
+        $mockResponse->shouldReceive('getBody')->once()->andReturn($mockStream);
+
         $mockClient = m::mock(Client::class);
         $mockClient->shouldReceive('request')->once()->andReturn($mockResponse);
 
@@ -135,8 +163,11 @@ class BitpayProviderTest extends ProviderTest
 
     public function test_fetches_exchange_rates_in_cache_after_first_fetching_from_api_endpoint()
     {
+        $mockStream = m::mock(StreamInterface::class);
+        $mockStream->shouldReceive('__toString')->once()->andReturn($this->stubBody());
         $mockResponse = m::mock(Response::class)->makePartial();
-        $mockResponse->shouldReceive('getBody')->once()->andReturn($this->stubBody());
+        $mockResponse->shouldReceive('getBody')->once()->andReturn($mockStream);
+        $mockResponse->shouldReceive('getStatusCode')->once()->andReturn(200);
         $mockClient = m::mock(Client::class);
         $mockClient->shouldReceive('request')->once()->andReturn($mockResponse);
 
@@ -146,6 +177,7 @@ class BitpayProviderTest extends ProviderTest
 
         $mockResponse2 = m::mock(Response::class)->makePartial();
         $mockResponse2->shouldReceive('getBody')->never();
+        $mockResponse->shouldReceive('getStatusCode')->never();
         $mockClient2 = m::mock(Client::class);
         $mockClient2->shouldReceive('request')->never();
 
@@ -172,6 +204,7 @@ class BitpayProviderTest extends ProviderTest
     {
         $arrayData = json_decode($this->stubBody(), true);
 
+        $exchangeRatesArray = [];
         foreach ($arrayData as $data) {
             $exchangeRatesArray[$data['code']] = $data['rate'];
         }

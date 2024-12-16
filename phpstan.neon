@@ -1,0 +1,6 @@
+parameters:
+    level: 2
+    phpVersion: 80000
+    paths:
+        - src
+        - tests

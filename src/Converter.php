@@ -9,21 +9,12 @@ use Jimmerioles\BitcoinCurrencyConverter\Exception\InvalidArgumentException;
 class Converter
 {
     /**
-     * Provider instance.
-     *
-     * @var Jimmerioles\BitcoinCurrencyConverter\Provider\ProviderInterface
+     * Create new Converter instance.
      */
-    protected $provider;
-
-    /**
-     * Create Converter instance.
-     *
-     * @param ProviderInterface $provider
-     */
-    public function __construct(ProviderInterface $provider = null)
+    public function __construct(protected ?ProviderInterface $provider = null)
     {
         if (is_null($provider)) {
-            $provider = new CoinbaseProvider;
+            $provider = new CoinbaseProvider();
         }
 
         $this->provider = $provider;
@@ -62,7 +53,7 @@ class Converter
      * @param  float $btcAmount
      * @param  float $rate
      * @return float
-     * @throws Jimmerioles\BitcoinCurrencyConverter\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     protected function computeCurrencyValue($btcAmount, $rate)
     {
@@ -89,7 +80,7 @@ class Converter
      * Convert currency amount to Bitcoin.
      *
      * @param  float  $amount
-     * @param  string $currency
+     * @param  string $currencyCode
      * @return float
      */
     public function toBtc($amount, $currencyCode)
@@ -107,7 +98,7 @@ class Converter
      * @param  float $amount
      * @param  float $rate
      * @return float
-     * @throws Jimmerioles\BitcoinCurrencyConverter\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     protected function computeBtcValue($amount, $rate)
     {

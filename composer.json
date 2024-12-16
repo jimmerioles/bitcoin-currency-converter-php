@@ -19,15 +19,20 @@
         }
     ],
     "require": {
-        "php": "^7.0",
-        "guzzlehttp/guzzle": "^6.3",
-        "illuminate/cache": "^5.5",
-        "illuminate/filesystem": "^5.5",
-        "composer/composer": "^1.5"
+        "php": "8.0.*",
+        "guzzlehttp/guzzle": "^7.0",
+        "illuminate/cache": "^9.0",
+        "illuminate/filesystem": "^9.0",
+        "composer/composer": "^2.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "~5.7",
-        "mockery/mockery": "0.9.*"
+        "phpunit/phpunit": "^9.0",
+        "mockery/mockery": "^1.0",
+        "rector/rector": "^1.2",
+        "laravel/pint": "1.5.*",
+        "phpstan/phpstan": "^1.12",
+        "phpstan/phpstan-mockery": "^1.1",
+        "phpstan/extension-installer": "^1.4"
     },
     "autoload": {
         "psr-4": {
@@ -48,7 +53,22 @@
     "prefer-stable": true,
     "config": {
         "allow-plugins": {
-            "kylekatarnls/update-helper": true
+            "kylekatarnls/update-helper": true,
+            "phpstan/extension-installer": true
         }
+    },
+    "scripts": {
+        "lint": "pint",
+        "refactor": "rector",
+        "test:lint": "pint --test",
+        "test:phpunit": "phpunit",
+        "test:refactor": "rector --dry-run",
+        "test:type:check": "phpstan analyse --ansi --memory-limit=-1 --debug",
+        "test": [
+            "@test:refactor",
+            "@test:lint",
+            "@test:type:check",
+            "@test:phpunit"
+        ]
     }
 }

@@ -8,12 +8,12 @@ use PHPUnit\Framework\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
 {
-    public function tearDown()
+    public function tearDown(): void
     {
         if (class_exists('Mockery')) {
             \Mockery::close();
         }
 
-        (new Filesystem)->deleteDirectory(project_root_path('cache'));
+        (new Filesystem())->deleteDirectory(project_root_path('cache'));
     }
 }

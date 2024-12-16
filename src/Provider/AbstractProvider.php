@@ -20,11 +20,32 @@ abstract class AbstractProvider implements ProviderInterface
     protected $client;
 
     /**
-     * Cache's time to live in minutes.
+     * Cache instance.
      *
-     * @var integer
+     * @var CacheInterface
      */
-    protected $cacheTTL;
+    protected $cache;
+
+    /**
+     * Exchange rates array.
+     *
+     * @var array
+     */
+    protected $exchangeRates;
+
+    /**
+     * Cache key string.
+     *
+     * @var string
+     */
+    protected $cacheKey;
+
+    /**
+     * Provider's exchange rates API endpoint, with 1 BTC as base.
+     *
+     * @var string
+     */
+    protected static $apiEndpoint;
 
     /**
      * Create provider instance.
@@ -33,19 +54,18 @@ abstract class AbstractProvider implements ProviderInterface
      * @param CacheInterface|null $cache
      * @param integer             $cacheTTL
      */
-    public function __construct(Client $client = null, CacheInterface $cache = null, $cacheTTL = 60)
+    public function __construct(Client $client = null, CacheInterface $cache = null, protected $cacheTTL = 60)
     {
         if (is_null($client)) {
-            $client = new Client;
+            $client = new Client();
         }
 
         if (is_null($cache)) {
-            $cache = new Repository(new FileStore(new Filesystem, project_root_path('cache')));
+            $cache = new Repository(new FileStore(new Filesystem(), project_root_path('cache')));
         }
 
         $this->client = $client;
         $this->cache = $cache;
-        $this->cacheTTL = $cacheTTL;
     }
 
     /**
@@ -125,17 +145,17 @@ abstract class AbstractProvider implements ProviderInterface
     /**
      * Fetch exchange rates json data from API endpoint.
      *
-     * @return string|json
+     * @return string
      */
     protected function fetchExchangeRates()
     {
         $response = $this->client->request('GET', self::getApiEndpoint());
 
         if ($response->getStatusCode() != 200) {
-            throw new UnexpectedValueException("Not OK response received from API endpoint.");
+            throw new UnexpectedValueException("Not OK response received from API endpoint."); //TODO: add @throw in phpdoc
         }
 
-        return $response->getBody();
+        return (string) $response->getBody();
     }
 
     /**
@@ -152,7 +172,7 @@ abstract class AbstractProvider implements ProviderInterface
      * Parse retrieved JSON data to exchange rates associative array.
      * i.e. ['BTC' => 1, 'USD' => 4000.00, ...]
      *
-     * @param  string|json $rawJsonData
+     * @param  string $rawJsonData
      * @return array
      */
     abstract protected function parseToExchangeRatesArray($rawJsonData);

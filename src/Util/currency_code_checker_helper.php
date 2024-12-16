@@ -11,7 +11,7 @@ if (! function_exists('is_crypto_currency')) {
      */
     function is_crypto_currency($currencyCode)
     {
-        return (new CurrencyCodeChecker)->isCryptoCurrency($currencyCode);
+        return (new CurrencyCodeChecker())->isCryptoCurrency($currencyCode);
     }
 }
 
@@ -24,7 +24,7 @@ if (! function_exists('is_fiat_currency')) {
      */
     function is_fiat_currency($currencyCode)
     {
-        return (new CurrencyCodeChecker)->isFiatCurrency($currencyCode);
+        return (new CurrencyCodeChecker())->isFiatCurrency($currencyCode);
     }
 }
 
@@ -37,6 +37,6 @@ if (! function_exists('is_currency_code')) {
      */
     function is_currency_code($currencyCode)
     {
-        return (new CurrencyCodeChecker)->isCurrencyCode($currencyCode);
+        return (new CurrencyCodeChecker())->isCurrencyCode($currencyCode);
     }
 }

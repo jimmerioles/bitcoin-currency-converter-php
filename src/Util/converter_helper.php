@@ -1,6 +1,7 @@
 <?php
 
 use Jimmerioles\BitcoinCurrencyConverter\Converter;
+use Jimmerioles\BitcoinCurrencyConverter\Provider\ProviderInterface;
 
 if (! function_exists('to_currency')) {
     /**
@@ -22,7 +23,7 @@ if (! function_exists('to_btc')) {
      * Convert currency amount to Bitcoin.
      *
      * @param  float  $amount
-     * @param  string $currency
+     * @param  string $currencyCode
      * @return float
      */
     function to_btc($amount, $currencyCode, $provider = null)

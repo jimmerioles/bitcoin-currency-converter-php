@@ -22,7 +22,7 @@ class BitpayProvider extends AbstractProvider
      * Parse retrieved JSON data to exchange rates associative array.
      * i.e. ['BTC' => 1, 'USD' => 4000.00, ...]
      *
-     * @param  string|json $rawJsonData
+     * @param  string $rawJsonData
      * @return array
      */
     protected function parseToExchangeRatesArray($rawJsonData)

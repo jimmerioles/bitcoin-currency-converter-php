@@ -10,7 +10,7 @@ class BitpayIntegrationTest extends TestCase
 {
     private $client;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->client = new Client();
     }
@@ -18,17 +18,17 @@ class BitpayIntegrationTest extends TestCase
     public function test_api_returns_expected_json_structure()
     {
         $response = $this->client->request(
-            'GET', 
-            BitpayProvider::getApiEndpoint(), 
+            'GET',
+            BitpayProvider::getApiEndpoint(),
             ['headers' => ['Accept' => 'application/json']]
         );
 
         $body = $response->getBody();
         $responseArray = json_decode($body, true);
-        
+
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertNotEmpty($body);
-        
+
         foreach ($responseArray as $currency) {
             $this->assertArrayHasKey('code', $currency);
             $this->assertArrayHasKey('rate', $currency);

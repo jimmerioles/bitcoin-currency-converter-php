@@ -4,8 +4,8 @@
     "features": {
         "ghcr.io/shyim/devcontainers-features/php:latest": {
             "installComposer": true,
-            // Change PHP version to 7.1 || 7.2 || 7.3 || 7.4 to test
-            "version": "7.0",
+            // Change PHP version to 8.0 || 8.1 || 8.2 || 8.3 || 8.4 to test
+            "version": "8.0",
             "disableAllExtensions": true,
             "extensionsExtra": "mbstring xml curl"
         }
@@ -18,7 +18,7 @@
                 "bmewburn.vscode-intelephense-client"
             ],
             "settings": {
-                "intelephense.environment.phpVersion": "7.0"
+                "intelephense.environment.phpVersion": "8.0"
             }
         }
     }

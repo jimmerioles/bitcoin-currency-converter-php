@@ -3,7 +3,6 @@
 use Composer\Factory;
 
 if (! function_exists('project_root_path')) {
-
     /**
      * Get project root path.
      *

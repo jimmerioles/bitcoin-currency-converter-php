@@ -10,7 +10,7 @@ class CoindeskIntegrationTest extends TestCase
 {
     private $client;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->client = new Client();
     }
@@ -18,17 +18,17 @@ class CoindeskIntegrationTest extends TestCase
     public function test_api_returns_expected_json_structure()
     {
         $response = $this->client->request(
-            'GET', 
-            CoindeskProvider::getApiEndpoint(), 
+            'GET',
+            CoindeskProvider::getApiEndpoint(),
             ['headers' => ['Accept' => 'application/json']]
         );
 
         $body = $response->getBody();
         $responseArray = json_decode($body, true);
-        
+
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertNotEmpty($body);
-        
+
         $this->assertArrayHasKey('bpi', $responseArray);
 
         foreach ($responseArray['bpi'] as $currency) {

@@ -2,12 +2,13 @@
 
 namespace Test\Unit;
 
-use \Mockery as m;
+use Mockery as m;
 use Test\TestCase;
 use Jimmerioles\BitcoinCurrencyConverter\Converter;
 use Jimmerioles\BitcoinCurrencyConverter\Provider\CoinbaseProvider;
 use Jimmerioles\BitcoinCurrencyConverter\Provider\ProviderInterface;
 use Jimmerioles\BitcoinCurrencyConverter\Exception\InvalidArgumentException;
+use ReflectionClass;
 
 class ConverterTest extends TestCase
 {
@@ -114,8 +115,13 @@ class ConverterTest extends TestCase
 
     public function test_uses_coinbase_as_default_exchange_rates_provider()
     {
-        $convert = new Converter;
+        $convert = new Converter();
 
-        $this->assertAttributeInstanceOf(CoinbaseProvider::class, 'provider', $convert);
+        $reflection = new ReflectionClass($convert);
+        $property = $reflection->getProperty('provider');
+        $property->setAccessible(true);
+        $provider = $property->getValue($convert);
+
+        $this->assertInstanceOf(CoinbaseProvider::class, $provider);
     }
 }
