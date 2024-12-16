@@ -13,14 +13,14 @@ use Jimmerioles\BitcoinCurrencyConverter\Exception\UnexpectedValueException;
 abstract class AbstractProvider implements ProviderInterface
 {
     /**
-     * GuzzleHttp client instance.
+     * Client instance.
      */
-    protected ?\GuzzleHttp\Client $client;
+    protected Client $client;
 
     /**
      * Cache instance.
      */
-    protected ?\Psr\SimpleCache\CacheInterface $cache;
+    protected CacheInterface $cache;
 
     /**
      * Exchange rates array.
@@ -46,22 +46,12 @@ abstract class AbstractProvider implements ProviderInterface
     /**
      * Create provider instance.
      *
-     * @param Client|null         $client
-     * @param CacheInterface|null $cache
      * @param integer             $cacheTTL
      */
     public function __construct(Client $client = null, CacheInterface $cache = null, protected $cacheTTL = 60)
     {
-        if (is_null($client)) {
-            $client = new Client();
-        }
-
-        if (is_null($cache)) {
-            $cache = new Repository(new FileStore(new Filesystem(), project_root_path('cache')));
-        }
-
-        $this->client = $client;
-        $this->cache = $cache;
+        $this->client = $client ?? new Client();
+        $this->cache = $cache ?? new Repository(new FileStore(new Filesystem(), project_root_path('cache')));
     }
 
     /**

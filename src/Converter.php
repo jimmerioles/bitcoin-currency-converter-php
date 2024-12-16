@@ -9,15 +9,16 @@ use Jimmerioles\BitcoinCurrencyConverter\Exception\InvalidArgumentException;
 class Converter
 {
     /**
+     * Provider instance.
+     */
+    protected ProviderInterface $provider;
+
+    /**
      * Create new Converter instance.
      */
-    public function __construct(protected ?ProviderInterface $provider = null)
+    public function __construct(ProviderInterface $provider = null)
     {
-        if (is_null($provider)) {
-            $provider = new CoinbaseProvider();
-        }
-
-        $this->provider = $provider;
+        $this->provider = $provider ?? new CoinbaseProvider();
     }
 
     /**

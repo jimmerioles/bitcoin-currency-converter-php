@@ -9,11 +9,14 @@ if (! function_exists('to_currency')) {
      *
      * @param  string                  $currencyCode
      * @param  float                   $btcAmount
-     * @param  ProviderInterface|null  $provider
      */
-    function to_currency($currencyCode, $btcAmount, $provider = null): float
+    function to_currency($currencyCode, $btcAmount, ?ProviderInterface $provider): float
     {
-        return (new Converter($provider))->toCurrency($currencyCode, $btcAmount);
+        if ($provider instanceof \Jimmerioles\BitcoinCurrencyConverter\Provider\ProviderInterface) {
+            return (new Converter($provider))->toCurrency($currencyCode, $btcAmount);
+        }
+
+        return (new Converter())->toCurrency($currencyCode, $btcAmount);
     }
 }
 
@@ -26,6 +29,10 @@ if (! function_exists('to_btc')) {
      */
     function to_btc($amount, $currencyCode, ?ProviderInterface $provider = null): float
     {
-        return (new Converter($provider))->toBtc($amount, $currencyCode);
+        if ($provider instanceof \Jimmerioles\BitcoinCurrencyConverter\Provider\ProviderInterface) {
+            return (new Converter($provider))->toBtc($amount, $currencyCode);
+        }
+
+        return (new Converter())->toBtc($amount, $currencyCode);
     }
 }
