@@ -1,4 +1,4 @@
-name: PHP 7.* Tests
+name: PHP 8.0-8.2 Tests
 
 on:
   push:    # Trigger on code pushes
@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        php: [7.0, 7.1, 7.2, 7.3, 7.4] # Define the PHP versions to test
+        php: [8.0, 8.1, 8.2] # Define the PHP versions to test
 
     steps:
       # Step 1: Check out the repository
@@ -32,5 +32,5 @@ jobs:
         run: composer install --no-progress --no-suggest
 
       # Step 4: Run Tests
-      - name: Run PHPUnit Tests
-        run: vendor/bin/phpunit
+      - name: Run tests
+        run: composer test
