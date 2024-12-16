@@ -10,9 +10,8 @@ if (! function_exists('to_currency')) {
      * @param  string                  $currencyCode
      * @param  float                   $btcAmount
      * @param  ProviderInterface|null  $provider
-     * @return float
      */
-    function to_currency($currencyCode, $btcAmount, $provider = null)
+    function to_currency($currencyCode, $btcAmount, $provider = null): float
     {
         return (new Converter($provider))->toCurrency($currencyCode, $btcAmount);
     }
@@ -24,9 +23,8 @@ if (! function_exists('to_btc')) {
      *
      * @param  float  $amount
      * @param  string $currencyCode
-     * @return float
      */
-    function to_btc($amount, $currencyCode, $provider = null)
+    function to_btc($amount, $currencyCode, $provider = null): float
     {
         return (new Converter($provider))->toBtc($amount, $currencyCode);
     }

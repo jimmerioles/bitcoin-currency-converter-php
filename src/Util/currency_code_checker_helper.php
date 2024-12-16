@@ -7,9 +7,8 @@ if (! function_exists('is_crypto_currency')) {
      * Check if cryptocurrency.
      *
      * @param  string  $currencyCode
-     * @return boolean
      */
-    function is_crypto_currency($currencyCode)
+    function is_crypto_currency($currencyCode): bool
     {
         return (new CurrencyCodeChecker())->isCryptoCurrency($currencyCode);
     }
@@ -20,9 +19,8 @@ if (! function_exists('is_fiat_currency')) {
      * Check if fiat currency.
      *
      * @param  string  $currencyCode
-     * @return boolean
      */
-    function is_fiat_currency($currencyCode)
+    function is_fiat_currency($currencyCode): bool
     {
         return (new CurrencyCodeChecker())->isFiatCurrency($currencyCode);
     }
@@ -33,9 +31,8 @@ if (! function_exists('is_currency_code')) {
      * Check if currency code.
      *
      * @param  string  $currencyCode
-     * @return boolean
      */
-    function is_currency_code($currencyCode)
+    function is_currency_code($currencyCode): bool
     {
         return (new CurrencyCodeChecker())->isCurrencyCode($currencyCode);
     }

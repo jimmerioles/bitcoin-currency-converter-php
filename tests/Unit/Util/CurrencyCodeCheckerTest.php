@@ -7,7 +7,7 @@ use Jimmerioles\BitcoinCurrencyConverter\Util\CurrencyCodeChecker;
 
 class CurrencyCodeCheckerTest extends TestCase
 {
-    public function test_can_check_if_currency_code()
+    public function test_can_check_if_currency_code(): void
     {
         $check = new CurrencyCodeChecker();
 
@@ -16,7 +16,7 @@ class CurrencyCodeCheckerTest extends TestCase
         $this->assertFalse($check->isCurrencyCode('FOO'));
     }
 
-    public function test_can_check_if_currency_code_in_lowerercaps()
+    public function test_can_check_if_currency_code_in_lowerercaps(): void
     {
         $check = new CurrencyCodeChecker();
 
@@ -25,7 +25,7 @@ class CurrencyCodeCheckerTest extends TestCase
         $this->assertFalse($check->isCurrencyCode('foo'));
     }
 
-    public function test_can_check_currency_code_if_fiat_currency()
+    public function test_can_check_currency_code_if_fiat_currency(): void
     {
         $check = new CurrencyCodeChecker();
 
@@ -34,7 +34,7 @@ class CurrencyCodeCheckerTest extends TestCase
         $this->assertFalse($check->isFiatCurrency('BTC'));
     }
 
-    public function test_can_check_currency_code_if_crypto_currency()
+    public function test_can_check_currency_code_if_crypto_currency(): void
     {
         $check = new CurrencyCodeChecker();
 
@@ -43,7 +43,7 @@ class CurrencyCodeCheckerTest extends TestCase
         $this->assertFalse($check->isCryptoCurrency('USD'));
     }
 
-    public function test_can_check_currency_code_in_lowercaps_if_fiat_currency()
+    public function test_can_check_currency_code_in_lowercaps_if_fiat_currency(): void
     {
         $check = new CurrencyCodeChecker();
 
@@ -52,7 +52,7 @@ class CurrencyCodeCheckerTest extends TestCase
         $this->assertFalse($check->isFiatCurrency('btc'));
     }
 
-    public function test_can_check_currency_code_in_lowercaps_if_crypto_currency()
+    public function test_can_check_currency_code_in_lowercaps_if_crypto_currency(): void
     {
         $check = new CurrencyCodeChecker();
 

@@ -46,9 +46,8 @@ class CurrencyCodeChecker
      * Check if crypto currency.
      *
      * @param  string  $currencyCode
-     * @return boolean
      */
-    public function isCryptoCurrency($currencyCode)
+    public function isCryptoCurrency($currencyCode): bool
     {
         return in_array(strtoupper($currencyCode), $this->cryptoCurrencyCodes);
     }
@@ -57,9 +56,8 @@ class CurrencyCodeChecker
      * Check if fiat currency.
      *
      * @param  string  $currencyCode
-     * @return boolean
      */
-    public function isFiatCurrency($currencyCode)
+    public function isFiatCurrency($currencyCode): bool
     {
         return in_array(strtoupper($currencyCode), $this->fiatCurrencyCodes);
     }
@@ -68,10 +66,12 @@ class CurrencyCodeChecker
      * Check if currency code.
      *
      * @param  string  $currencyCode
-     * @return boolean
      */
-    public function isCurrencyCode($currencyCode)
+    public function isCurrencyCode($currencyCode): bool
     {
-        return $this->isFiatCurrency($currencyCode) || $this->isCryptoCurrency($currencyCode);
+        if ($this->isFiatCurrency($currencyCode)) {
+            return true;
+        }
+        return $this->isCryptoCurrency($currencyCode);
     }
 }

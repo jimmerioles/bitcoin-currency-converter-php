@@ -8,7 +8,7 @@ abstract class ProviderTest extends TestCase
 {
     protected $stubResponse;
 
-    protected function getStubResponse($fixturesPath = '')
+    protected function getStubResponse(string $fixturesPath = '')
     {
         if (! $this->stubResponse) {
             $this->stubResponse = file_get_contents(project_root_path($fixturesPath));

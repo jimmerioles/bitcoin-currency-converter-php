@@ -8,9 +8,8 @@ if (! function_exists('format_to_currency')) {
      *
      * @param  string $currencyCode
      * @param  float  $value
-     * @return float
      */
-    function format_to_currency($currencyCode, $value)
+    function format_to_currency($currencyCode, $value): float
     {
         if (is_crypto_currency($currencyCode)) {
             return round($value, 8, PHP_ROUND_HALF_UP);

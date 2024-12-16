@@ -8,14 +8,14 @@ use Test\TestCase;
 
 class CoindeskIntegrationTest extends TestCase
 {
-    private $client;
+    private \GuzzleHttp\Client $client;
 
     protected function setUp(): void
     {
         $this->client = new Client();
     }
 
-    public function test_api_returns_expected_json_structure()
+    public function test_api_returns_expected_json_structure(): void
     {
         $response = $this->client->request(
             'GET',

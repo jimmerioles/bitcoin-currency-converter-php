@@ -22,10 +22,8 @@ class Converter
 
     /**
      * Convert Bitcoin amount to a specific currency.
-     *
-     * @return float
      */
-    public function toCurrency(string $currencyCode, float $btcAmount)
+    public function toCurrency(string $currencyCode, float $btcAmount): float
     {
         $rate = $this->getRate($currencyCode);
 
@@ -53,7 +51,7 @@ class Converter
      * @return float
      * @throws InvalidArgumentException
      */
-    protected function computeCurrencyValue($btcAmount, $rate)
+    protected function computeCurrencyValue($btcAmount, $rate): int|float
     {
         if (! is_numeric($btcAmount)) {
             throw new InvalidArgumentException("Argument \$btcAmount should be numeric, '{$btcAmount}' given.");
@@ -67,19 +65,16 @@ class Converter
      *
      * @param  string $currencyCode
      * @param  float  $value
-     * @return float
      */
-    protected function formatToCurrency($currencyCode, $value)
+    protected function formatToCurrency($currencyCode, $value): float
     {
         return format_to_currency($currencyCode, $value);
     }
 
     /**
      * Convert currency amount to Bitcoin.
-     *
-     * @return float
      */
-    public function toBtc(float $amount, string $currencyCode)
+    public function toBtc(float $amount, string $currencyCode): float
     {
         $rate = $this->getRate($currencyCode);
 
@@ -96,7 +91,7 @@ class Converter
      * @return float
      * @throws InvalidArgumentException
      */
-    protected function computeBtcValue($amount, $rate)
+    protected function computeBtcValue($amount, $rate): int|float
     {
         if (! is_numeric($amount)) {
             throw new InvalidArgumentException("Argument \$amount should be numeric, '{$amount}' given.");

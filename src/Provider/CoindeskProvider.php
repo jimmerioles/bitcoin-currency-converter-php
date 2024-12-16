@@ -23,9 +23,8 @@ class CoindeskProvider extends AbstractProvider
      * i.e. ['BTC' => 1, 'USD' => 4000.00, ...]
      *
      * @param  string $rawJsonData
-     * @return array
      */
-    protected function parseToExchangeRatesArray($rawJsonData)
+    protected function parseToExchangeRatesArray($rawJsonData): array
     {
         $arrayData = json_decode($rawJsonData, true);
         $exchangeRatesArray = [];

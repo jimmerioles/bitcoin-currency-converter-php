@@ -18,7 +18,7 @@ use ReflectionClass;
 
 class CoindeskProviderTest extends ProviderTest
 {
-    public function test_getRate_gets_rate_of_currency()
+    public function test_getRate_gets_rate_of_currency(): void
     {
         $mock = new MockHandler([new Response(200, ['Content-Type' => 'application/json'], $this->stubBody())]);
         $handler = HandlerStack::create($mock);
@@ -31,7 +31,7 @@ class CoindeskProviderTest extends ProviderTest
         $this->assertEquals(4665.2388, $result);
     }
 
-    public function test_getRate_gets_rate_of_currency_passed_with_lowercaps_currency_code()
+    public function test_getRate_gets_rate_of_currency_passed_with_lowercaps_currency_code(): void
     {
         $mock = new MockHandler([new Response(200, ['Content-Type' => 'application/json'], $this->stubBody())]);
         $handler = HandlerStack::create($mock);
@@ -44,7 +44,7 @@ class CoindeskProviderTest extends ProviderTest
         $this->assertEquals(4665.2388, $result);
     }
 
-    public function test_getRate_throws_exception_when_passed_with_invalid_currency_code_argument()
+    public function test_getRate_throws_exception_when_passed_with_invalid_currency_code_argument(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage("Argument passed not a valid currency code, 'FOO' given.");
@@ -58,7 +58,7 @@ class CoindeskProviderTest extends ProviderTest
         $provider->getRate('FOO');
     }
 
-    public function test_getRate_throws_exception_when_provider_does_not_support_currency_code()
+    public function test_getRate_throws_exception_when_provider_does_not_support_currency_code(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage("Argument \$currencyCode 'DOGE' not supported by provider.");
@@ -72,7 +72,7 @@ class CoindeskProviderTest extends ProviderTest
         $provider->getRate('DOGE');
     }
 
-    public function test_getRate_throws_exception_when_provider_recieves_unexpected_api_endpoint_data()
+    public function test_getRate_throws_exception_when_provider_recieves_unexpected_api_endpoint_data(): void
     {
         $this->expectException(UnexpectedValueException::class);
         $this->expectExceptionMessage("Not OK response received from API endpoint.");
@@ -86,7 +86,7 @@ class CoindeskProviderTest extends ProviderTest
         $provider->getRate('USD');
     }
 
-    public function test_requests_exchange_rates_from_api_endpoint_only_once_with_same_instance()
+    public function test_requests_exchange_rates_from_api_endpoint_only_once_with_same_instance(): void
     {
         $mockStream = m::mock(StreamInterface::class);
         $mockStream->shouldReceive('__toString')->once()->andReturn($this->stubBody());
@@ -110,7 +110,7 @@ class CoindeskProviderTest extends ProviderTest
         $this->assertEquals($rates['USD'], $provider->getRate('USD'));
     }
 
-    public function test_uses_guzzleHttp_as_default_http_client()
+    public function test_uses_guzzleHttp_as_default_http_client(): void
     {
         $provider = new CoindeskProvider();
 
@@ -122,7 +122,7 @@ class CoindeskProviderTest extends ProviderTest
         $this->assertInstanceOf(Client::class, $client);
     }
 
-    public function test_uses_illuminateCache_as_default_cache_implementation()
+    public function test_uses_illuminateCache_as_default_cache_implementation(): void
     {
         $provider = new CoindeskProvider();
 
@@ -134,7 +134,7 @@ class CoindeskProviderTest extends ProviderTest
         $this->assertInstanceOf(Repository::class, $cache);
     }
 
-    public function test_caches_exchange_rates_on_first_api_call()
+    public function test_caches_exchange_rates_on_first_api_call(): void
     {
         $mockStream = m::mock(StreamInterface::class);
         $mockStream->shouldReceive('__toString')->once()->andReturn($this->stubBody());
@@ -157,7 +157,7 @@ class CoindeskProviderTest extends ProviderTest
         $this->assertEquals(4665.2388, $result);
     }
 
-    public function test_fetches_exchange_rates_in_cache_after_first_fetching_from_api_endpoint()
+    public function test_fetches_exchange_rates_in_cache_after_first_fetching_from_api_endpoint(): void
     {
         $mockStream = m::mock(StreamInterface::class);
         $mockStream->shouldReceive('__toString')->once()->andReturn($this->stubBody());
@@ -196,7 +196,10 @@ class CoindeskProviderTest extends ProviderTest
         return $this->getStubResponse('tests/fixtures/coindesk-response.json');
     }
 
-    private function ratesArrayStub()
+    /**
+     * @return mixed[]
+     */
+    private function ratesArrayStub(): array
     {
         $arrayData = json_decode($this->stubBody(), true);
 

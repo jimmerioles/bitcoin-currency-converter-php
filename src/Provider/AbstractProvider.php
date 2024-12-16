@@ -14,17 +14,13 @@ abstract class AbstractProvider implements ProviderInterface
 {
     /**
      * GuzzleHttp client instance.
-     *
-     * @var Client
      */
-    protected $client;
+    protected ?\GuzzleHttp\Client $client;
 
     /**
      * Cache instance.
-     *
-     * @var CacheInterface
      */
-    protected $cache;
+    protected ?\Psr\SimpleCache\CacheInterface $cache;
 
     /**
      * Exchange rates array.
