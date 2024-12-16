@@ -25,7 +25,7 @@ abstract class AbstractProvider implements ProviderInterface
     /**
      * Exchange rates array.
      *
-     * @var array
+     * @var array<string, int|float>
      */
     protected $exchangeRates;
 
@@ -99,7 +99,7 @@ abstract class AbstractProvider implements ProviderInterface
     /**
      * Get exchange rates in associative array.
      *
-     * @return array
+     * @return array<string, int|float>
      */
     protected function getExchangeRates()
     {
@@ -113,9 +113,9 @@ abstract class AbstractProvider implements ProviderInterface
     /**
      * Set exchange rates.
      *
-     * @param array $exchangeRatesArray
+     * @param array<string, int|float> $exchangeRatesArray
      */
-    protected function setExchangeRates($exchangeRatesArray)
+    protected function setExchangeRates($exchangeRatesArray): void
     {
         $this->exchangeRates = $exchangeRatesArray;
     }
@@ -123,9 +123,9 @@ abstract class AbstractProvider implements ProviderInterface
     /**
      * Retrieve exchange rates.
      *
-     * @return array
+     * @return array<string, int|float>
      */
-    protected function retrieveExchangeRates()
+    protected function retrieveExchangeRates(): array
     {
         if ($this->cache->has($this->cacheKey)) {
             return $this->cache->get($this->cacheKey);
@@ -169,7 +169,7 @@ abstract class AbstractProvider implements ProviderInterface
      * i.e. ['BTC' => 1, 'USD' => 4000.00, ...]
      *
      * @param  string $rawJsonData
-     * @return array
+     * @return array<string, int|float>
      */
-    abstract protected function parseToExchangeRatesArray($rawJsonData);
+    abstract protected function parseToExchangeRatesArray($rawJsonData): array;
 }

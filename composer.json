@@ -58,16 +58,16 @@
         }
     },
     "scripts": {
-        "lint": "pint",
-        "refactor": "rector",
-        "test:lint": "pint --test",
+        "pint": "pint",
+        "rector": "rector",
+        "test:pint": "pint --test",
         "test:phpunit": "phpunit",
-        "test:refactor": "rector --dry-run",
-        "test:type:check": "phpstan analyse --ansi --memory-limit=-1 --debug",
+        "test:rector": "rector --dry-run",
+        "test:phpstan": "phpstan analyse --ansi --memory-limit=-1 --debug",
         "test": [
-            "@test:refactor",
-            "@test:lint",
-            "@test:type:check",
+            "@test:rector",
+            "@test:pint",
+            "@test:phpstan",
             "@test:phpunit"
         ]
     }

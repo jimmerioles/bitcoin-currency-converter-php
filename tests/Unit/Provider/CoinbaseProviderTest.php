@@ -195,12 +195,15 @@ class CoinbaseProviderTest extends ProviderTest
         $this->assertEquals(4360.60, $result2);
     }
 
-    private function stubBody()
+    private function stubBody(): string
     {
         return $this->getStubResponse('tests/fixtures/coinbase-response.json');
     }
 
-    private function ratesArrayStub()
+    /**
+     * @return array<string, int|float>
+     */
+    private function ratesArrayStub(): array
     {
         $array = json_decode($this->stubBody(), true);
 

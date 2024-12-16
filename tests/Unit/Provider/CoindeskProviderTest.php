@@ -191,7 +191,7 @@ class CoindeskProviderTest extends ProviderTest
         $this->assertEquals(4665.2388, $result2);
     }
 
-    private function stubBody()
+    private function stubBody(): string
     {
         return $this->getStubResponse('tests/fixtures/coindesk-response.json');
     }

@@ -24,7 +24,7 @@ if (! function_exists('to_btc')) {
      * @param  float  $amount
      * @param  string $currencyCode
      */
-    function to_btc($amount, $currencyCode, $provider = null): float
+    function to_btc($amount, $currencyCode, ?ProviderInterface $provider = null): float
     {
         return (new Converter($provider))->toBtc($amount, $currencyCode);
     }

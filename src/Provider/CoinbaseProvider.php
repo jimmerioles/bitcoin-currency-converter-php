@@ -23,9 +23,9 @@ class CoinbaseProvider extends AbstractProvider
      * i.e. ['BTC' => 1, 'USD' => 4000.00, ...]
      *
      * @param  string $rawJsonData
-     * @return array
+     * @return array<string, int|float>
      */
-    protected function parseToExchangeRatesArray($rawJsonData)
+    protected function parseToExchangeRatesArray($rawJsonData): array
     {
         $arrayData = json_decode($rawJsonData, true);
 

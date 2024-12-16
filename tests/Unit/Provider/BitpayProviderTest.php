@@ -195,7 +195,7 @@ class BitpayProviderTest extends ProviderTest
         $this->assertEquals(4183.99, $result2);
     }
 
-    private function stubBody()
+    private function stubBody(): string
     {
         return $this->getStubResponse('tests/fixtures/bitpay-response.json');
     }
