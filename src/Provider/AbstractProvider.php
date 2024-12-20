@@ -7,6 +7,7 @@ use Illuminate\Cache\FileStore;
 use Illuminate\Cache\Repository;
 use Psr\SimpleCache\CacheInterface;
 use Illuminate\Filesystem\Filesystem;
+use Jimmerioles\BitcoinCurrencyConverter\Contracts\ProviderInterface;
 use Jimmerioles\BitcoinCurrencyConverter\Exception\InvalidArgumentException;
 use Jimmerioles\BitcoinCurrencyConverter\Exception\UnexpectedValueException;
 
@@ -27,7 +28,7 @@ abstract class AbstractProvider implements ProviderInterface
      *
      * @var array<string, int|float>
      */
-    protected $exchangeRates;
+    protected $exchangeRates = [];
 
     /**
      * Cache key string.
@@ -63,13 +64,13 @@ abstract class AbstractProvider implements ProviderInterface
     public function getRate($currencyCode)
     {
         if (! is_currency_code($currencyCode)) {
-            throw new InvalidArgumentException("Argument passed not a valid currency code, '{$currencyCode}' given.");
+            throw new InvalidArgumentException('Argument passed not a valid currency code, \'' . $currencyCode . '\' given.');
         }
 
         $exchangeRates = $this->getExchangeRates();
 
         if (! $this->isSupportedByProvider($currencyCode)) {
-            throw new InvalidArgumentException("Argument \$currencyCode '{$currencyCode}' not supported by provider.");
+            throw new InvalidArgumentException('Argument $currencyCode \'' . $currencyCode . '\' not supported by provider.');
         }
 
         return $exchangeRates[strtoupper($currencyCode)];
@@ -83,7 +84,7 @@ abstract class AbstractProvider implements ProviderInterface
      */
     protected function isSupportedByProvider($currencyCode)
     {
-        return in_array(strtoupper($currencyCode), array_keys($this->exchangeRates));
+        return in_array(strtoupper($currencyCode), array_keys($this->exchangeRates), true);
     }
 
     /**
@@ -93,7 +94,7 @@ abstract class AbstractProvider implements ProviderInterface
      */
     protected function getExchangeRates()
     {
-        if (empty($this->exchangeRates)) {
+        if ($this->exchangeRates === []) {
             $this->setExchangeRates($this->retrieveExchangeRates());
         }
 

@@ -6,7 +6,7 @@ use Mockery as m;
 use Test\TestCase;
 use Jimmerioles\BitcoinCurrencyConverter\Converter;
 use Jimmerioles\BitcoinCurrencyConverter\Provider\CoinbaseProvider;
-use Jimmerioles\BitcoinCurrencyConverter\Provider\ProviderInterface;
+use Jimmerioles\BitcoinCurrencyConverter\Contracts\ProviderInterface;
 use ReflectionClass;
 
 class ConverterTest extends TestCase

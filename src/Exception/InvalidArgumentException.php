@@ -2,6 +2,9 @@
 
 namespace Jimmerioles\BitcoinCurrencyConverter\Exception;
 
-class InvalidArgumentException extends \InvalidArgumentException implements ExceptionInterface
+use InvalidArgumentException as GlobalInvalidArgumentException;
+use Jimmerioles\BitcoinCurrencyConverter\Contracts\ExceptionInterface;
+
+class InvalidArgumentException extends GlobalInvalidArgumentException implements ExceptionInterface
 {
 }

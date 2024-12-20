@@ -2,6 +2,9 @@
 
 namespace Jimmerioles\BitcoinCurrencyConverter\Exception;
 
-class UnexpectedValueException extends \UnexpectedValueException implements ExceptionInterface
+use Jimmerioles\BitcoinCurrencyConverter\Contracts\ExceptionInterface;
+use UnexpectedValueException as GlobalUnexpectedValueException;
+
+class UnexpectedValueException extends GlobalUnexpectedValueException implements ExceptionInterface
 {
 }

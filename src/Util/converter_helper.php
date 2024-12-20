@@ -1,7 +1,7 @@
 <?php
 
+use Jimmerioles\BitcoinCurrencyConverter\Contracts\ProviderInterface;
 use Jimmerioles\BitcoinCurrencyConverter\Converter;
-use Jimmerioles\BitcoinCurrencyConverter\Provider\ProviderInterface;
 
 if (! function_exists('to_currency')) {
     /**
@@ -12,7 +12,7 @@ if (! function_exists('to_currency')) {
      */
     function to_currency($currencyCode, $btcAmount, ?ProviderInterface $provider): float
     {
-        if ($provider instanceof \Jimmerioles\BitcoinCurrencyConverter\Provider\ProviderInterface) {
+        if ($provider instanceof ProviderInterface) {
             return (new Converter($provider))->toCurrency($currencyCode, $btcAmount);
         }
 
@@ -29,7 +29,7 @@ if (! function_exists('to_btc')) {
      */
     function to_btc($amount, $currencyCode, ?ProviderInterface $provider = null): float
     {
-        if ($provider instanceof \Jimmerioles\BitcoinCurrencyConverter\Provider\ProviderInterface) {
+        if ($provider instanceof ProviderInterface) {
             return (new Converter($provider))->toBtc($amount, $currencyCode);
         }
 

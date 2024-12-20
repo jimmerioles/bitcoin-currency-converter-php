@@ -32,7 +32,10 @@
         "laravel/pint": "1.5.*",
         "phpstan/phpstan": "^1.12",
         "phpstan/phpstan-mockery": "^1.1",
-        "phpstan/extension-installer": "^1.4"
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan-strict-rules": "^1.6",
+        "thecodingmachine/phpstan-strict-rules": "^1.0",
+        "symplify/phpstan-rules": "^13.0"
     },
     "autoload": {
         "psr-4": {

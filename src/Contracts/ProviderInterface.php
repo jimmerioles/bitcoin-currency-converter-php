@@ -1,6 +1,6 @@
 <?php
 
-namespace Jimmerioles\BitcoinCurrencyConverter\Provider;
+namespace Jimmerioles\BitcoinCurrencyConverter\Contracts;
 
 interface ProviderInterface
 {

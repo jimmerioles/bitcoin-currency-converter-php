@@ -3,8 +3,7 @@
 namespace Jimmerioles\BitcoinCurrencyConverter;
 
 use Jimmerioles\BitcoinCurrencyConverter\Provider\CoinbaseProvider;
-use Jimmerioles\BitcoinCurrencyConverter\Provider\ProviderInterface;
-use Jimmerioles\BitcoinCurrencyConverter\Exception\InvalidArgumentException;
+use Jimmerioles\BitcoinCurrencyConverter\Contracts\ProviderInterface;
 
 class Converter
 {
@@ -46,18 +45,9 @@ class Converter
 
     /**
      * Compute currency value.
-     *
-     * @param  float $btcAmount
-     * @param  float $rate
-     * @return float
-     * @throws InvalidArgumentException
      */
-    protected function computeCurrencyValue($btcAmount, $rate): int|float
+    protected function computeCurrencyValue(int|float $btcAmount, int|float $rate): int|float
     {
-        if (! is_numeric($btcAmount)) {
-            throw new InvalidArgumentException("Argument \$btcAmount should be numeric, '{$btcAmount}' given.");
-        }
-
         return $btcAmount * $rate;
     }
 
@@ -86,18 +76,9 @@ class Converter
 
     /**
      * Compute Bitcoin value.
-     *
-     * @param  float $amount
-     * @param  float $rate
-     * @return float
-     * @throws InvalidArgumentException
      */
-    protected function computeBtcValue($amount, $rate): int|float
+    protected function computeBtcValue(int|float $amount, int|float $rate): int|float
     {
-        if (! is_numeric($amount)) {
-            throw new InvalidArgumentException("Argument \$amount should be numeric, '{$amount}' given.");
-        }
-
         return $amount / $rate;
     }
 }

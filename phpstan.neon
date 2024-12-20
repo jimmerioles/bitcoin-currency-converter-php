@@ -1,5 +1,8 @@
 parameters:
-    level: 9
+    level: max
     phpVersion: 80000
     paths:
         - src
+
+includes:
+    - vendor/symplify/phpstan-rules/config/symplify-rules.neon

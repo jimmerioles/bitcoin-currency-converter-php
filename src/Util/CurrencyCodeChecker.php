@@ -318,7 +318,7 @@ class CurrencyCodeChecker
      */
     public function isCryptoCurrency($currencyCode): bool
     {
-        return in_array(strtoupper($currencyCode), $this->cryptoCurrencyCodes);
+        return in_array(strtoupper($currencyCode), $this->cryptoCurrencyCodes, true);
     }
 
     /**
@@ -328,7 +328,7 @@ class CurrencyCodeChecker
      */
     public function isFiatCurrency($currencyCode): bool
     {
-        return in_array(strtoupper($currencyCode), $this->fiatCurrencyCodes);
+        return in_array(strtoupper($currencyCode), $this->fiatCurrencyCodes, true);
     }
 
     /**

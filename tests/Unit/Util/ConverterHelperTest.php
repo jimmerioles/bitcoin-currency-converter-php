@@ -4,7 +4,7 @@ namespace Test\Unit\Util;
 
 use Mockery as m;
 use Test\TestCase;
-use Jimmerioles\BitcoinCurrencyConverter\Provider\ProviderInterface;
+use Jimmerioles\BitcoinCurrencyConverter\Contracts\ProviderInterface;
 
 class ConverterHelperTest extends TestCase
 {
