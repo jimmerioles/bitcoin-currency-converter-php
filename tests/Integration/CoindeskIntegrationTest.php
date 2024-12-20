@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Test\Integration;
 
 use GuzzleHttp\Client;
@@ -24,7 +26,7 @@ class CoindeskIntegrationTest extends TestCase
         );
 
         $body = $response->getBody();
-        $responseArray = json_decode($body, true);
+        $responseArray = json_decode((string) $body, true);
 
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertNotEmpty($body);

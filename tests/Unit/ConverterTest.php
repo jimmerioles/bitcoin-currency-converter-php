@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Test\Unit;
 
 use Mockery as m;
@@ -95,6 +97,7 @@ class ConverterTest extends TestCase
         $reflection = new ReflectionClass($convert);
         $property = $reflection->getProperty('provider');
         $property->setAccessible(true);
+
         $provider = $property->getValue($convert);
 
         $this->assertInstanceOf(CoinbaseProvider::class, $provider);

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Jimmerioles\BitcoinCurrencyConverter;
 
 use Jimmerioles\BitcoinCurrencyConverter\Provider\CoinbaseProvider;
@@ -34,11 +36,8 @@ class Converter
 
     /**
      * Get rate of currency.
-     *
-     * @param  string $currencyCode
-     * @return float
      */
-    protected function getRate($currencyCode)
+    protected function getRate(string $currencyCode): float
     {
         return $this->provider->getRate($currencyCode);
     }
@@ -53,11 +52,8 @@ class Converter
 
     /**
      * Format value based on currency.
-     *
-     * @param  string $currencyCode
-     * @param  float  $value
      */
-    protected function formatToCurrency($currencyCode, $value): float
+    protected function formatToCurrency(string $currencyCode, float $value): float
     {
         return format_to_currency($currencyCode, $value);
     }

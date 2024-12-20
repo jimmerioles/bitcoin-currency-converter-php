@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
+use Rector\TypeDeclaration\Rector\StmtsAwareInterface\DeclareStrictTypesRector;
 
 return RectorConfig::configure()
     ->withPaths([
@@ -12,8 +13,10 @@ return RectorConfig::configure()
     ->withPreparedSets(
         deadCode: true,
         codeQuality: true,
+        codingStyle: true,
         typeDeclarations: true,
         privatization: true,
         earlyReturn: true
     )
+    ->withRules([DeclareStrictTypesRector::class])
     ->withPhpSets(php80: true);

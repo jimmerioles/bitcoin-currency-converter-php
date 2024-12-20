@@ -1,14 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Jimmerioles\BitcoinCurrencyConverter\Contracts;
 
 interface ProviderInterface
 {
     /**
      * Get rate of currency code.
-     *
-     * @param  string $currencyCode
-     * @return float
      */
-    public function getRate($currencyCode);
+    public function getRate(string $currencyCode): float;
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Jimmerioles\BitcoinCurrencyConverter\Util;
 
 class CurrencyCodeChecker
@@ -9,7 +11,7 @@ class CurrencyCodeChecker
      *
      * @var array<string>
      */
-    protected $fiatCurrencyCodes = [
+    protected array $fiatCurrencyCodes = [
         'AED',
         'AFN',
         'ALL',
@@ -189,7 +191,7 @@ class CurrencyCodeChecker
      *
      * @var array<string>
      */
-    protected $cryptoCurrencyCodes = [
+    protected array $cryptoCurrencyCodes = [
         'AUR',
         'BIS',
         'BTC',
@@ -313,34 +315,29 @@ class CurrencyCodeChecker
 
     /**
      * Check if crypto currency.
-     *
-     * @param  string  $currencyCode
      */
-    public function isCryptoCurrency($currencyCode): bool
+    public function isCryptoCurrency(string $currencyCode): bool
     {
         return in_array(strtoupper($currencyCode), $this->cryptoCurrencyCodes, true);
     }
 
     /**
      * Check if fiat currency.
-     *
-     * @param  string  $currencyCode
      */
-    public function isFiatCurrency($currencyCode): bool
+    public function isFiatCurrency(string $currencyCode): bool
     {
         return in_array(strtoupper($currencyCode), $this->fiatCurrencyCodes, true);
     }
 
     /**
      * Check if currency code.
-     *
-     * @param  string  $currencyCode
      */
-    public function isCurrencyCode($currencyCode): bool
+    public function isCurrencyCode(string $currencyCode): bool
     {
         if ($this->isFiatCurrency($currencyCode)) {
             return true;
         }
+
         return $this->isCryptoCurrency($currencyCode);
     }
 }

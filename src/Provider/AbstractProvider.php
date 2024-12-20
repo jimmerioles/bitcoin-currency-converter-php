@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Jimmerioles\BitcoinCurrencyConverter\Provider;
 
 use GuzzleHttp\Client;
@@ -28,28 +30,22 @@ abstract class AbstractProvider implements ProviderInterface
      *
      * @var array<string, int|float>
      */
-    protected $exchangeRates = [];
+    protected array $exchangeRates = [];
 
     /**
      * Cache key string.
-     *
-     * @var string
      */
-    protected $cacheKey;
+    protected string $cacheKey;
 
     /**
      * Provider's exchange rates API endpoint, with 1 BTC as base.
-     *
-     * @var string
      */
-    protected static $apiEndpoint;
+    protected static string $apiEndpoint;
 
     /**
      * Create provider instance.
-     *
-     * @param integer             $cacheTTL
      */
-    public function __construct(Client $client = null, CacheInterface $cache = null, protected $cacheTTL = 60)
+    public function __construct(Client $client = null, CacheInterface $cache = null, protected int $cacheTTL = 60)
     {
         $this->client = $client ?? new Client();
         $this->cache = $cache ?? new Repository(new FileStore(new Filesystem(), project_root_path('cache')));
@@ -58,31 +54,27 @@ abstract class AbstractProvider implements ProviderInterface
     /**
      * Get rate of currency.
      *
-     * @param  string $currencyCode
-     * @return float
+     * @throws InvalidArgumentException
      */
-    public function getRate($currencyCode)
+    public function getRate(string $currencyCode): float
     {
         if (! is_currency_code($currencyCode)) {
-            throw new InvalidArgumentException('Argument passed not a valid currency code, \'' . $currencyCode . '\' given.');
+            throw new InvalidArgumentException("Argument passed not a valid currency code, '" . $currencyCode . "' given.");
         }
 
         $exchangeRates = $this->getExchangeRates();
 
         if (! $this->isSupportedByProvider($currencyCode)) {
-            throw new InvalidArgumentException('Argument $currencyCode \'' . $currencyCode . '\' not supported by provider.');
+            throw new InvalidArgumentException('Argument $currencyCode \'' . $currencyCode . "' not supported by provider.");
         }
 
-        return $exchangeRates[strtoupper($currencyCode)];
+        return (float) $exchangeRates[strtoupper($currencyCode)];
     }
 
     /**
      * Check if currency code supported by provider.
-     *
-     * @param  string  $currencyCode
-     * @return boolean
      */
-    protected function isSupportedByProvider($currencyCode)
+    protected function isSupportedByProvider(string $currencyCode): bool
     {
         return in_array(strtoupper($currencyCode), array_keys($this->exchangeRates), true);
     }
@@ -92,7 +84,7 @@ abstract class AbstractProvider implements ProviderInterface
      *
      * @return array<string, int|float>
      */
-    protected function getExchangeRates()
+    protected function getExchangeRates(): array
     {
         if ($this->exchangeRates === []) {
             $this->setExchangeRates($this->retrieveExchangeRates());
@@ -106,7 +98,7 @@ abstract class AbstractProvider implements ProviderInterface
      *
      * @param array<string, int|float> $exchangeRatesArray
      */
-    protected function setExchangeRates($exchangeRatesArray): void
+    protected function setExchangeRates(array $exchangeRatesArray): void
     {
         $this->exchangeRates = $exchangeRatesArray;
     }
@@ -135,13 +127,15 @@ abstract class AbstractProvider implements ProviderInterface
 
     /**
      * Fetch exchange rates json data from API endpoint.
+     *
+     * @throws UnexpectedValueException
      */
     protected function fetchExchangeRates(): string
     {
         $response = $this->client->request('GET', self::getApiEndpoint());
 
         if ($response->getStatusCode() != 200) {
-            throw new UnexpectedValueException("Not OK response received from API endpoint."); //TODO: add @throw in phpdoc
+            throw new UnexpectedValueException("Not OK response received from API endpoint.");
         }
 
         return (string) $response->getBody();
@@ -149,10 +143,8 @@ abstract class AbstractProvider implements ProviderInterface
 
     /**
      * Get the API endpoint.
-     *
-     * @return string
      */
-    public static function getApiEndpoint()
+    public static function getApiEndpoint(): string
     {
         return static::$apiEndpoint;
     }

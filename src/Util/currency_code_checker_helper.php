@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Jimmerioles\BitcoinCurrencyConverter\Util\CurrencyCodeChecker;
 
 if (! function_exists('is_crypto_currency')) {

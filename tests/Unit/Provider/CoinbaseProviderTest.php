@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Test\Unit\Provider;
 
 use Mockery as m;
@@ -121,6 +123,7 @@ class CoinbaseProviderTest extends ProviderTest
         $reflection = new ReflectionClass($provider);
         $property = $reflection->getProperty('client');
         $property->setAccessible(true);
+
         $client = $property->getValue($provider);
 
         $this->assertInstanceOf(Client::class, $client);
@@ -133,6 +136,7 @@ class CoinbaseProviderTest extends ProviderTest
         $reflection = new ReflectionClass($provider);
         $property = $reflection->getProperty('cache');
         $property->setAccessible(true);
+
         $cache = $property->getValue($provider);
 
         $this->assertInstanceOf(Repository::class, $cache);
