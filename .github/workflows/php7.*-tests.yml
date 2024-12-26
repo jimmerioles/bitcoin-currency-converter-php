@@ -3,7 +3,7 @@ name: PHP 7.* Tests
 on:
   push:    # Trigger on code pushes
     branches:
-      - master
+      - 1.x
   pull_request:  # Trigger on pull requests
 
 jobs:
