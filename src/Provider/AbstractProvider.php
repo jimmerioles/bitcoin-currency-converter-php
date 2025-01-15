@@ -134,7 +134,7 @@ abstract class AbstractProvider implements ProviderInterface
     {
         $response = $this->client->request('GET', self::getApiEndpoint());
 
-        if ($response->getStatusCode() != 200) {
+        if ($response->getStatusCode() !== 200) {
             throw new UnexpectedValueException("Not OK response received from API endpoint.");
         }
 

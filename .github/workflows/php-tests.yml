@@ -1,36 +1,31 @@
-name: PHP 8.0-8.2 Tests
+name: PHP 8.3-8.4 Tests
 
 on:
-  push:    # Trigger on code pushes
+  push:
     branches:
       - master
-  pull_request:  # Trigger on pull requests
+  pull_request:
 
 jobs:
   test:
     runs-on: ubuntu-latest
-
+    
     strategy:
       matrix:
-        php: [8.0, 8.1, 8.2] # Define the PHP versions to test
+        php: [8.3, 8.4]
 
     steps:
-      # Step 1: Check out the repository
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      # Step 2: Set up PHP
-      - name: Set up PHP
+      - uses: actions/checkout@v4
+      
+      - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          extensions: mbstring, xml, curl 
-          coverage: none # Skip code coverage tools for faster testing
+          extensions: mbstring, xml, curl
+          coverage: pcov
+          
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
 
-      # Step 3: Install Dependencies
-      - name: Install Dependencies
-        run: composer install --no-progress --no-suggest
-
-      # Step 4: Run Tests
       - name: Run tests
         run: composer test

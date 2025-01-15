@@ -19,4 +19,4 @@ return RectorConfig::configure()
         earlyReturn: true
     )
     ->withRules([DeclareStrictTypesRector::class])
-    ->withPhpSets(php80: true);
+    ->withPhpSets(php83: true);
