@@ -1,6 +1,8 @@
 parameters:
     level: 8
-    phpVersion: 80300
+    phpVersion: 
+        min: 80300
+        max: 80400
     paths:
         - src
 
