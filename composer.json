@@ -60,17 +60,37 @@
         }
     },
     "scripts": {
-        "pint": "pint",
-        "rector": "rector",
-        "test:pint": "pint --test",
-        "test:phpunit": "phpunit",
-        "test:rector": "rector --dry-run",
-        "test:phpstan": "phpstan analyse --ansi --memory-limit=-1 --debug",
-        "test": [
-            "@test:rector",
-            "@test:pint",
-            "@test:phpstan",
-            "@test:phpunit"
+        "test:feature": "phpunit --testsuite Feature",
+        "test:unit": "phpunit --testsuite Unit",
+        "test:integration": "phpunit --testsuite Integration",
+        "check:tests": "phpunit",
+        "check:code_upgrade": "rector --dry-run",
+        "check:code_standards": "pint --test",
+        "check:code_analysis": "phpstan analyse --ansi --memory-limit=-1 --debug",
+        "code:checks": [
+            "@check:code_upgrade",
+            "@check:code_standards",
+            "@check:code_analysis",
+            "@check:tests"
+        ],
+        "fix:code_standards": "pint",
+        "fix:code_upgrade": "rector",
+        "code:fix": [
+            "@fix:code_upgrade",
+            "@fix:code_standards"
         ]
+    },
+    "scripts-descriptions": {
+        "test:feature": "Run feature tests",
+        "test:unit": "Run unit tests",
+        "test:integration": "Run integration tests",
+        "check:tests": "Run all tests (Feature, Unit & Integration)",
+        "check:code_upgrade": "Check code for currently supported PHP code upgrade using Rector",
+        "check:code_standards": "Check code for coding standard violations using Pint",
+        "check:code_analysis": "Check code for errors and potential bugs using PHPStan",
+        "code:checks": "Run all code checks",
+        "fix:code_standards": "pint",
+        "fix:code_upgrade": "rector",
+        "code:fix": "Run all code fixes"
     }
 }
