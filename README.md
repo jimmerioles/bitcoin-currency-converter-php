@@ -25,6 +25,15 @@ It is simple, lightweight, extensible, framework agnostic and fast.
 * It supports different exchange rates providers: Coinbase, Coindesk, Bitpay
 * It has baked-in caching (PSR16 compliant, swappable with your own or your framework's)
 
+## PHP Versions Support
+
+| Bitcoin Currency Converter | <span style="color: rgb(255,51,51);">PHP 7.0</span> | PHP 7.1 | PHP 7.2 | PHP 7.3 | PHP 7.4 | PHP 8.0 | PHP 8.1 | PHP 8.2 | PHP 8.3 | PHP 8.4 |
+| :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+| [original-legacy-codebase][link-original-legacy-codebase] | :white_check_mark: | :white_check_mark: |    |    |    |    |    |    |    |    |
+| [1.x][link-1-x] | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |    |    |    |    |    |
+| [2.x][link-2-x] |    |    |    |    |    | :white_check_mark: | :white_check_mark: | :white_check_mark: |    |    |
+| [3.x][link-3-x] |    |    |    |    |    |    |    |    | :white_check_mark: | :white_check_mark: |
+
 ## Install
 
 Lets begin by installing the library by Composer:
@@ -162,3 +171,7 @@ Let's find Satoshi Nakamoto! | or let's have a :coffee:
 [link-issue]: https://github.com/jimmerioles/bitcoin-currency-converter-php/issues/new
 [link-pull-request]: https://github.com/jimmerioles/bitcoin-currency-converter-php/pull/new/master
 [link-contributing]: https://github.com/jimmerioles/bitcoin-currency-converter-php#contributing
+[link-original-legacy-codebase]: https://github.com/jimmerioles/bitcoin-currency-converter-php/tree/original-legacy-codebase
+[link-1-x]: https://github.com/jimmerioles/bitcoin-currency-converter-php/tree/1.x
+[link-2-x]: https://github.com/jimmerioles/bitcoin-currency-converter-php/tree/2.x
+[link-3-x]: https://github.com/jimmerioles/bitcoin-currency-converter-php/tree/master
