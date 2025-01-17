@@ -89,8 +89,8 @@
         "check:code_standards": "Check code for coding standard violations using Pint",
         "check:code_analysis": "Check code for errors and potential bugs using PHPStan",
         "code:checks": "Run all code checks",
-        "fix:code_standards": "pint",
-        "fix:code_upgrade": "rector",
+        "fix:code_standards": "Fix code for coding standard violations using Pint",
+        "fix:code_upgrade": "Fix code for currently supported PHP code upgrade using Rector",
         "code:fix": "Run all code fixes"
     }
 }
