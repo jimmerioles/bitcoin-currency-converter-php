@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Jimmerioles\BitcoinCurrencyConverter\Provider;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 use Illuminate\Cache\FileStore;
 use Illuminate\Cache\Repository;
 use Psr\SimpleCache\CacheInterface;
@@ -18,7 +19,7 @@ abstract class AbstractProvider implements ProviderInterface
     /**
      * Client instance.
      */
-    protected Client $client;
+    protected ClientInterface $client;
 
     /**
      * Cache instance.
@@ -45,7 +46,7 @@ abstract class AbstractProvider implements ProviderInterface
     /**
      * Create provider instance.
      */
-    public function __construct(Client $client = null, CacheInterface $cache = null, protected int $cacheTTL = 60)
+    public function __construct(ClientInterface $client = null, CacheInterface $cache = null, protected int $cacheTTL = 60)
     {
         $this->client = $client ?? new Client();
         $this->cache = $cache ?? new Repository(new FileStore(new Filesystem(), project_root_path('cache')));
