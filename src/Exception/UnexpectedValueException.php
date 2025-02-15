@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Jimmerioles\BitcoinCurrencyConverter\Exception;
 
 use Jimmerioles\BitcoinCurrencyConverter\Contracts\ExceptionInterface;
-use UnexpectedValueException as GlobalUnexpectedValueException;
+use UnexpectedValueException as BaseUnexpectedValueException;
 
-class UnexpectedValueException extends GlobalUnexpectedValueException implements ExceptionInterface
-{
-}
+class UnexpectedValueException extends BaseUnexpectedValueException implements ExceptionInterface {}
