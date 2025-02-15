@@ -29,9 +29,9 @@ class Converter
     {
         $rate = $this->getRate($currencyCode);
 
-        $value = $this->computeCurrencyValue($btcAmount, $rate);
+        $value = $this->compute($btcAmount, $rate);
 
-        return $this->formatToCurrency($currencyCode, $value);
+        return $this->format($currencyCode, $value);
     }
 
     /**
@@ -45,15 +45,19 @@ class Converter
     /**
      * Compute currency value.
      */
-    protected function computeCurrencyValue(int|float $btcAmount, int|float $rate): int|float
+    protected function compute(int|float $amount, int|float $rate, bool $toBtc = false): int|float
     {
-        return $btcAmount * $rate;
+        if ($toBtc) {
+            return $amount / $rate;
+        }
+
+        return $amount * $rate;
     }
 
     /**
      * Format value based on currency.
      */
-    protected function formatToCurrency(string $currencyCode, float $value): float
+    protected function format(string $currencyCode, float $value): float
     {
         return format_to_currency($currencyCode, $value);
     }
@@ -65,16 +69,8 @@ class Converter
     {
         $rate = $this->getRate($currencyCode);
 
-        $value = $this->computeBtcValue($amount, $rate);
+        $value = $this->compute($amount, $rate, toBtc: true);
 
-        return $this->formatToCurrency('BTC', $value);
-    }
-
-    /**
-     * Compute Bitcoin value.
-     */
-    protected function computeBtcValue(int|float $amount, int|float $rate): int|float
-    {
-        return $amount / $rate;
+        return $this->format('BTC', $value);
     }
 }
