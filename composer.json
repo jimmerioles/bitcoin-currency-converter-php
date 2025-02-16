@@ -63,7 +63,10 @@
         "test:feature": "phpunit --testsuite Feature",
         "test:unit": "phpunit --testsuite Unit",
         "test:integration": "phpunit --testsuite Integration",
-        "check:tests": "phpunit",
+        "check:tests": [
+            "@test:feature",
+            "@test:unit"
+        ],
         "check:code_upgrade": "rector --dry-run",
         "check:code_standards": "pint --test",
         "check:code_analysis": "phpstan analyse --ansi --memory-limit=-1 --debug",
