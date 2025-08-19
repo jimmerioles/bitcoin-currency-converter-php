@@ -17,16 +17,6 @@ use Jimmerioles\BitcoinCurrencyConverter\Exception\UnexpectedValueException;
 abstract class AbstractProvider implements ProviderInterface
 {
     /**
-     * Client instance.
-     */
-    protected ClientInterface $client;
-
-    /**
-     * Cache instance.
-     */
-    protected CacheInterface $cache;
-
-    /**
      * Exchange rates array.
      *
      * @var array<string, int|float>
@@ -46,10 +36,9 @@ abstract class AbstractProvider implements ProviderInterface
     /**
      * Create provider instance.
      */
-    public function __construct(ClientInterface $client = null, CacheInterface $cache = null, protected int $cacheTTL = 60)
+    public function __construct(protected ?ClientInterface $client = new Client, protected ?CacheInterface $cache = null, protected int $cacheTTL = 60)
     {
-        $this->client = $client ?? new Client();
-        $this->cache = $cache ?? new Repository(new FileStore(new Filesystem(), project_root_path('cache')));
+        $this->cache = $cache ?? new Repository(new FileStore(new Filesystem, project_root_path('cache')));
     }
 
     /**

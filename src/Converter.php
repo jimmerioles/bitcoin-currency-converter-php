@@ -10,17 +10,11 @@ use Jimmerioles\BitcoinCurrencyConverter\Contracts\ProviderInterface;
 class Converter
 {
     /**
-     * Provider instance.
-     */
-    protected ProviderInterface $provider;
-
-    /**
      * Create new Converter instance.
      */
-    public function __construct(ProviderInterface $provider = null)
-    {
-        $this->provider = $provider ?? new CoinbaseProvider();
-    }
+    public function __construct(
+        protected ?ProviderInterface $provider = new CoinbaseProvider
+    ) {}
 
     /**
      * Convert Bitcoin amount to a specific currency.
